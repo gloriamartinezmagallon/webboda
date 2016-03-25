@@ -1,0 +1,66 @@
+{"frames": {
+
+"BAILE-04.png":
+{
+	"frame": {"x":1,"y":1,"w":153,"h":183},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":153,"h":183},
+	"sourceSize": {"w":153,"h":183},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"BAILE-06.png":
+{
+	"frame": {"x":156,"y":1,"w":153,"h":183},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":153,"h":183},
+	"sourceSize": {"w":153,"h":183},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"BAILE-03.png":
+{
+	"frame": {"x":311,"y":1,"w":237,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":237,"h":190},
+	"sourceSize": {"w":237,"h":190},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"BAILE-05.png":
+{
+	"frame": {"x":1,"y":193,"w":206,"h":194},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":3,"w":206,"h":194},
+	"sourceSize": {"w":206,"h":197},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"BAILE-02.png":
+{
+	"frame": {"x":209,"y":193,"w":223,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":223,"h":200},
+	"sourceSize": {"w":223,"h":200},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"BAILE-01.png":
+{
+	"frame": {"x":434,"y":193,"w":190,"h":204},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":190,"h":204},
+	"sourceSize": {"w":190,"h":204},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "baile.png",
+	"format": "RGBA8888",
+	"size": {"w":625,"h":398},
+	"scale": "0.25",
+	"smartupdate": "$TexturePacker:SmartUpdate:e7d49c3b371ab814b36c4feeee2269a8:2aed49c58410688943fe4b3c4d15cd5b:8b3aaed319219033a3976e05dd728027$"
+}
+}

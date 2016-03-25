@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Miguel & Gloria</title>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.backstretch.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
+
+        <link href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body id="body">
+        <div class="container">
+            <div class="home slide">
+                &nbsp;
+                <div class="content-box">
+                    <div class="home-img "  id="homeslide">
+                        <h1>Miguel Plus Gloria: 10.09.2016</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="game slide" id="gameslide">
+                <div class="content-box">
+                    <h2 class="game-title">Pulsa en la ruleta</h2>
+                </div>
+                
+                <canvas id="my_canvas"></canvas>
+            </div>
+
+            <!-- Bottom Nav -->	
+
+            <div id="bottom-nav">
+                <img src="img/next.png" alt="Next">
+                <div id="next">
+                    <img src="img/next.png" alt="Next">
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="js/core.js" type="text/javascript"></script>
+        <script src="js/spritesheet.js" type="text/javascript"></script>
+        <script src="js/xhr.js" type="text/javascript"></script>
+
+        <script>
+            //BACKGROUND
+            
+            $.backstretch("img/footer_lodyas.png");
+            
+            // Scroll Animation
+
+            function scrollNav(id) {
+                $('html,body').animate({scrollTop: $("" + id).offset().top}, 'slow');
+            }
+
+
+            // Next Scroll Bar
+
+            $(function () {
+                
+
+                function scroll(direction) {
+
+                    var scroll, i,
+                            positions = [],
+                            here = $(window).scrollTop(),
+                            collection = $('.slide');
+
+                    collection.each(function () {
+                        positions.push(parseInt($(this).offset()['top'], 10));
+                    });
+
+                    for (i = 0; i < positions.length; i++) {
+                        if (direction == 'next' && positions[i] > here) {
+                            scroll = collection.get(i);
+                            break;
+                        }
+                        if (direction == 'prev' && i > 0 && positions[i] >= here) {
+                            scroll = collection.get(i - 1);
+                            break;
+                        }
+                    }
+
+                    if (scroll) {
+                        $.scrollTo(scroll, {
+                            duration: 750
+                        });
+                    }
+
+                    return false;
+                }
+                $(".home-img").click(function () {
+                    scroll('next');
+                });
+                
+                $("#next,#prev").click(function () {
+                    return scroll($(this).attr('id'));
+                });
+
+                $(".scrolltoanchor").click(function () {
+                    $.scrollTo($($(this).attr("href")), {
+                        duration: 750
+                    });
+                    return false;
+                });
+
+            });
+
+            var image = null;
+            var canvas = null;
+            var context = null;
+            var assets = ['ruleta-01.png', 'ruleta-02.png', 'ruleta-03.png', 'ruleta-04.png', 'ruleta-05.png', 'ruleta-06.png', 'ruleta-07.png', 'ruleta-08.png'];
+            var frames = [];
+            var framerate = 10000 / 30;
+            var frame = 0;
+            var numintervalstotal = 0;
+            var spriteSheet = new SpriteSheetClass();
+            var animateiniciada = false;
+            var intervalanimate = null;
+            var numintervals = 0;
+            var setup = function () {
+                var body = document.getElementById('body');
+                canvas = document.getElementById('my_canvas');
+                context = canvas.getContext('2d');
+
+
+                canvas.width = jQuery(window).width();
+                canvas.height = jQuery(window).height() - 30;
+
+
+                spriteSheet.load('img/ruleta_1.png');
+
+                canvas.addEventListener('click', onClickEvent);
+
+
+
+
+//                    spriteSheet.parseAtlasDefinition();
+//                    for (var i = 0; i < assets.length; i++){
+//                        frames.push(new Image());
+////                        frames[i].onload = onImageLoad;
+//                        frames[i].src = assets[i];
+//                    }
+
+            };
+
+            var onClickEvent = function () {
+                    console.log("Click");
+                if (!animateiniciada) {
+                    numintervals = 0;
+                    max = 50;
+                    min = 30;
+                    numintervalstotal = Math.random() * (max - min) + min;
+                }
+
+                animate();
+
+            }
+            var animate = function () {
+                numintervals++;
+                if (!animateiniciada) {
+                    animateiniciada = true;
+                    intervalanimate = setInterval(animate, framerate);
+                } else {
+                    clearInterval(intervalanimate);
+                    if (numintervals > 3 && numintervals < (numintervalstotal - 3)) {
+                        intervalanimate = setInterval(animate, framerate / 10);
+                    } else if (numintervals < numintervalstotal) {
+                        intervalanimate = setInterval(animate, framerate);
+                    } else {
+                        animateiniciada = false;
+                        showPopup();
+                    }
+                }
+
+
+                context.clearRect(10, 50, canvas.width, canvas.height)
+                drawSprite(assets[frame], canvas.width / 2, canvas.height / 2);
+                frame = (frame + 1) % assets.length;
+
+            }
+            var onImageLoad = function () {
+                // Use the console.log function to print a statement to the browser console.
+                // This will print once the image has been downloaded.
+                // YOUR CODE HERE
+                //console.log("image load");
+                xhrGet('img/ruleta_1.json', function (resp) {
+//                        console.log(resp.currentTarget.responseText);
+                    spriteSheet.parseAtlasDefinition(resp.currentTarget.responseText);
+                    context.clearRect(10, 50, canvas.width, canvas.height)
+                    drawSprite(assets[frame], canvas.width / 2, canvas.height / 2);
+                    frame = (frame + 1) % assets.length;
+                });
+            };
+            setup();
+
+            var showPopup = function () {
+                switch (lastsprite) {
+                    case 0:
+                        console.log("Ramo " + lastsprite);
+                        break;
+                    case 1:
+                        console.log("Anillos " + lastsprite);
+                        break;
+                    case 2:
+                        console.log("Bus " + lastsprite);
+                        break;
+                    case 3:
+                        console.log("Ramo " + lastsprite);
+                        break;
+                    case 4:
+                        console.log("Cubiertos " + lastsprite);
+                        break;
+                    case 5:
+                        console.log("Anillos " + lastsprite);
+                        break;
+                    case 6:
+                        console.log("Bus " + lastsprite);
+                        break;
+
+                    case 7:
+                        console.log("Cubiertos " + lastsprite);
+                        break;
+                }
+            };
+
+            function getDocHeight() {
+                var db = document.body;
+                var dde = document.documentElement;
+
+                return Math.max(db.scrollHeight, dde.scrollHeight, db.offsetHeight, dde.offsetHeight, db.clientHeight, dde.clientHeight)
+
+            }
+        </script>
+    </body>
+</html>

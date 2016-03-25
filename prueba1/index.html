@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://www.katieplusluke.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!-- Site designed by Luke Clum @ www.lukeclum.com -->
+
+
+        <title>
+            Katie + Luke | We're Getting Married!
+        </title>
+
+        <!-- Meta Tags -->
+
+
+        <meta name="description" content="Katie Litzenberg &amp; Luke Clum are tying the knot on 9.16.2012. Come celebrate with them!">
+        <meta name="keywords" content="Katie Litzenberg, Luke Clum, marriage, web design, scroll animation">
+        <meta name="author" content="http://www.lukeclum.com">
+        <meta property="og:title" content="Katie + Luke are getting Married!">
+        <meta property="og:description" content="Katie Litzenberg &amp; Luke Clum are tying the knot on 9.16.2012. Come celebrate with them!">
+        <meta property="og:image" content="http://www.katieplusluke.com/images/fb-icon.jpg">
+        <meta property="og:url" content="http://www.katieplusluke.com">
+        <meta property="fb:admins" content="1577640021">
+        <meta property="og:type" content="website">
+
+        <!-- Links -->
+
+        <link rel="stylesheet" href="css/style.css" media="screen,projection" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.fancybox-1.3.4.css" media="screen">
+        <link href="css/css" rel="stylesheet" type="text/css">
+        <link rel="icon" href="http://www.katieplusluke.com/favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="http://www.katieplusluke.com/favicon.png" type="image/x-icon"> 
+        <link rel="image_src" href="http://www.katieplusluke.com/images/fb-icon.jpg">
+
+        <!-- Google Analytics -->
+
+        <script id="twitter-wjs" src="js/widgets.js"></script>
+        <script type="text/javascript" async="" src="js/ga.js">
+            
+        </script>
+        
+
+        <!-- Java Script -->
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mousewheel-3.0.4.pack.js"></script>
+        <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+        <script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
+
+
+        <script type="text/javascript">
+
+            // Scroll Animation
+
+            function scrollNav(id) {
+                $('html,body').animate({scrollTop: $("" + id).offset().top}, 'slow');
+            }
+
+
+            // Next Scroll Bar
+
+            $(function () {
+
+                function scroll(direction) {
+
+                    var scroll, i,
+                            positions = [],
+                            here = $(window).scrollTop(),
+                            collection = $('.slide');
+
+                    collection.each(function () {
+                        positions.push(parseInt($(this).offset()['top'], 10));
+                    });
+
+                    for (i = 0; i < positions.length; i++) {
+                        if (direction == 'next' && positions[i] > here) {
+                            scroll = collection.get(i);
+                            break;
+                        }
+                        if (direction == 'prev' && i > 0 && positions[i] >= here) {
+                            scroll = collection.get(i - 1);
+                            break;
+                        }
+                    }
+
+                    if (scroll) {
+                        $.scrollTo(scroll, {
+                            duration: 750
+                        });
+                    }
+
+                    return false;
+                }
+
+                $("#next,#prev").click(function () {
+                    return scroll($(this).attr('id'));
+                });
+
+                $(".scrolltoanchor").click(function () {
+                    $.scrollTo($($(this).attr("href")), {
+                        duration: 750
+                    });
+                    return false;
+                });
+
+            });
+
+
+            // Fancy Box
+
+            $(document).ready(function () {
+                $("a[rel=story-gallery]").fancybox({
+                    'titlePosition': 'inside',
+                    'titleFormat': function (title, currentArray, currentIndex, currentOpts) {
+                        return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+                    }
+                });
+
+                $("a[rel=guys-gallery]").fancybox({
+                    'titlePosition': 'inside',
+                    'titleFormat': function (title, currentArray, currentIndex, currentOpts) {
+                        return '<span id="fancybox-title-over">' + (title.length ? '' + title : '') + '</span>';
+                    }
+                });
+
+                $("a[rel=girls-gallery]").fancybox({
+                    'titlePosition': 'inside',
+                    'titleFormat': function (title, currentArray, currentIndex, currentOpts) {
+                        return '<span id="fancybox-title-over">' + (title.length ? '' + title : '') + '</span>';
+                    }
+                });
+
+                $("#getmore-info").fancybox({
+                    'titlePosition': 'inside',
+                    'transitionIn': 'none',
+                    'transitionOut': 'none'
+                });
+            });
+
+
+        </script>
+        <script type="text/javascript" charset="utf-8" async="" src="./index_files/button.acba75bebf25a5605514ffbb0e01d0eb.js"></script></head>
+
+    <body onload="reset()">
+
+
+        <!-- Home Frame -->
+
+        <div class="home slide">
+            &nbsp;
+            <div class="content-box">
+                <div class="home-img">
+                    <h1>Katie Plus Luke: 09.16.2012</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pictures Frame -->
+
+        <div class="pictures slide">
+            <div class="content-box">
+
+                <div class="pictures-title"><h1>Pictures</h1></div>
+
+                <h2 class="gallery-title">Click on the boxes</h2>
+
+                <div class="gallery">
+                    <a class="photo one" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-01.jpg" title="">Photo<span></span></a>
+                    <a class="photo two" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-02.jpg" title="">Photo<span></span></a>
+                    <a class="photo three" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-03.jpg" title="">Photo<span></span></a>
+                    <a class="photo four" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-04.jpg" title="">Photo<span></span></a>
+                    <a class="photo five" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-05.jpg" title="">Photo<span></span></a>
+                    <a class="photo six" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-06.jpg" title="">Photo<span></span></a>
+                    <a class="photo seven" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-07.jpg" title="">Photo<span></span></a>
+                    <a class="photo eight" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-08.jpg" title="">Photo<span></span></a>
+                    <a class="photo nine" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-09.jpg" title="">Photo<span></span></a>
+                    <a class="photo ten" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-10.jpg" title="">Photo<span></span></a>
+                    <a class="photo eleven" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-11.jpg" title="">Photo<span></span></a>
+                    <a class="photo twelve" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-12.jpg" title="">Photo<span></span></a>
+                    <a class="photo thirteen" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-13.jpg" title="">Photo<span></span></a>
+                    <a class="photo fourteen" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-14.jpg" title="">Photo<span></span></a>
+                    <a class="photo fifteen" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-15.jpg" title="">Photo<span></span></a>
+                    <a class="photo sixteen" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-16.jpg" title="">Photo<span></span></a>
+                    <a class="photo seventeen" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-17.jpg" title="">Photo<span></span></a>
+                    <a class="photo eighteen" rel="story-gallery" href="http://www.katieplusluke.com/images/gallery/ss-18.jpg" title="">Photo<span></span></a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Our Story Frame -->
+
+        <div class="story slide">
+            <div class="content-box">
+
+                <div class="story-title"><h1>Our Story</h1></div>
+
+                <h2>Rollover the timeline</h2>
+
+                <div class="timeline">
+
+
+                    <div class="highlights">
+                        <a class="heart first">Highlight 1<span></span></a>
+                        <h4><span>September, 2008</span><br>Katie + Luke first laid eyes on one another at a student leadership BBQ at Seattle Pacific University.  With the scent of lighter fluid in the air, the flames of attraction were instantaneous.  Unfortunately, Katie would prove to be a tad…elusive…on the road to a dating relationship.</h4>
+                    </div>
+                    <div class="highlights">
+                        <a class="heart second">Highlight 2<span></span></a>
+                        <h4><span>April, 2009</span><br>On a rainy spring evening in Seattle, with Norah Jones playing ever so softly in the background, Luke nervously asked Katie to be his girlfriend.  The first kiss followed shortly after…</h4>
+                    </div>
+                    <div class="highlights">
+                        <a class="heart third">Highlight 3<span></span></a>
+                        <h4><span>June, 2010</span><br>Katie + Luke made a wonderful journey to Scotland together.  It was on this trip they decided tea times should be institutionalized in the United States and that they wouldn’t mind having a pet sheep someday.</h4>
+                    </div>
+                    <div class="highlights">
+                        <a class="heart fourth">Highlight 4<span></span></a>
+                        <h4><span>July, 2010</span><br>Katie moved to Spokane, Washington for grad school (i.e.) Katie + Luke embarked upon a two-year long-distance relationship.  They endured tedious drives across the state, bad skype connections, and a few tearful goodbyes (on Katie’s end), but they survived and decided to get married, soooooo it all worked out.  </h4>
+                    </div>
+                    <div class="highlights">
+                        <a class="heart fifth">Highlight 5<span></span></a>
+                        <h4><span>June-Aug 2011</span><br>Katie + Luke had the pleasure and privilege of taking TWO family vacations with the Litzenberg and Clum clans: they socialized with sea turtles in Kauai and made pleasantries with mosquitoes in Minnesota.</h4>
+                    </div>
+                    <div class="highlights">
+                        <a class="heart sixth">Highlight 6<span></span></a>
+                        <h4><span>January 22nd, 2012</span><br>Luke flew to London to surprise Katie and propose to her on the banks of the Thames River, just steps from Westminster Abbey.  She said yes, and they hopped happily back across the pond to begin the adventure of future wedded bliss.</h4>
+                    </div>
+                    <div class="highlights">
+                        <a class="heart seventh">Highlight 7<span></span></a>
+                        <h4><span>January 23rd, 2012</span><br>Wedding stress began...</h4>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Event Info Frame -->
+
+        <div class="info slide">
+            <div class="content-box">
+
+                <div class="info-title"><h1>Event Info</h1></div>
+
+                <div class="map-content">
+                    <img class="map" src="./index_files/map.png" alt="Map">
+                </div>
+
+                <div class="info-content">
+                    <h2>Lord Hill Farms</h2>
+                    <h3>Ceremony at 5:30</h3>
+                    <h3>Dinner and dancing to follow</h3>
+
+                    <div class="more-info">
+                        <a class="info btn" id="getmore-info" href="http://www.katieplusluke.com/#inline1" title="">More Event Info<span></span></a> 
+                    </div>
+
+                    <div style="display: none;">
+                        <div id="inline1" style="width:600px;height:550px;overflow:auto;">
+                            <p>The ceremony will begin at 5:30pm and will take place outside, weather permitting.  Dinner and dancing will follow shortly after.  Bring your party pants/dresses people, it’s going to be a good ole’ time. Dress is semiformal; bow ties and/or bolo ties are encouraged.</p>
+                            <div class="line-seperator"></div>
+                            <p>Lord Hill Farms is located in Snohomish, about 45 minutes north of Seattle.  Please allow between 45 and 60 minutes travel time to reach Lord Hill Farms if leaving from Seattle (it’s awkward being late to a wedding, isn’t it?). Ample parking will be available on site.</p>
+                            <p>Beer and Wine will be served at the reception by a licensed bartender. If you are over the age of 21 and wish to partake, please make sure to bring your ID with you.</p>
+                            <div class="line-seperator"></div>
+                            <p>If you are joining us from out of town, you may wish to book a hotel reservation.  Some hotels we can recommend that are located closer to the venue include:</p>
+                            <p>•	<a href="http://www.guesthouseintl.com/" target="_blank">Guesthouse Inn &amp; Suites Monroe</a> ($)<br>
+                                •	<a href="http://hiltongardeninn3.hilton.com/" target="_blank">Hilton Garden Inn Seattle/Bothell</a> ($$)<br>
+                                •	<a href="http://www.willowslodge.com/index.html" target="_blank">Willows Lodge Woodinville</a> ($$$)</p>
+                            <p>Many other lodging accommodations are available closer to downtown Seattle; we recommend you look for lodging there if you’re planning on exploring the city a bunch over the weekend.</p>
+                            <div class="line-seperator"></div>
+                            <p>Any questions, comments, concerns, playlist requests, or accommodation inquiries, feel free to contact Katie or Luke: <a href="mailto:katieplusluke@gmail.com">katieplusluke@gmail.com</a></p>
+
+                        </div>
+                    </div>
+
+                    <div class="get-directions">
+                        <a href="http://goo.gl/maps/V1XY" target="_blank" class="directions btn">Driving Directions<span></span></a> 
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Wedding Party Frame -->
+
+        <div class="party slide">
+            <div class="content-box">
+
+                <div class="party-title"><h1>The Wedding Party</h1></div>
+
+                <h2>The people standing beside us!</h2>
+
+                <div class="groomsmen">
+                    <h3 class="wp-title">Groomsmen</h3>
+
+                    <div class="party-gallery">
+                        <a class="wp one" rel="guys-gallery" href="http://www.katieplusluke.com/images/gallery/guys1.jpg" title="BEST MAN: Josiah Brown">Photo One<span></span></a>
+                        <a class="wp two" rel="guys-gallery" href="http://www.katieplusluke.com/images/gallery/guys2.jpg" title="Levi Clum">Photo One<span></span></a>
+                        <a class="wp three" rel="guys-gallery" href="http://www.katieplusluke.com/images/gallery/guys3.jpg" title="Trevor White">Photo One<span></span></a>
+                        <a class="wp four" rel="guys-gallery" href="http://www.katieplusluke.com/images/gallery/guys4.jpg" title="Aaron McConkey">Photo One<span></span></a>
+                        <a class="wp five" rel="guys-gallery" href="http://www.katieplusluke.com/images/gallery/guys5.jpg" title="Chris Kyle">Photo One<span></span></a>
+                        <a class="wp six" rel="guys-gallery" href="http://www.katieplusluke.com/images/gallery/guys6.jpg" title="Chris Hanke">Photo One<span></span></a>
+                        <a class="wp seven" rel="guys-gallery" href="http://www.katieplusluke.com/images/gallery/guys7.jpg" title="Jake Kirkwood">Photo One<span></span></a>
+                    </div>
+                </div>
+
+                <div class="bridesmaids">
+                    <h3 class="wp-title">Bridesmaids</h3>
+
+                    <div class="party-gallery">
+                        <a class="wp one" rel="girls-gallery" href="http://www.katieplusluke.com/images/gallery/girls1.jpg" title="MAID OF HONOR: Ashlea Holcomb">Photo One<span></span></a>
+                        <a class="wp two" rel="girls-gallery" href="http://www.katieplusluke.com/images/gallery/girls2.jpg" title="MATRON OF HONOR: Mali Hawkins">Photo One<span></span></a>
+                        <a class="wp three" rel="girls-gallery" href="http://www.katieplusluke.com/images/gallery/girls3.jpg" title="Heidi Clum">Photo One<span></span></a>
+                        <a class="wp four" rel="girls-gallery" href="http://www.katieplusluke.com/images/gallery/girls4.jpg" title="Amy Archibald">Photo One<span></span></a>
+                        <a class="wp five" rel="girls-gallery" href="http://www.katieplusluke.com/images/gallery/girls5.jpg" title="Kashley Ricedorff">Photo One<span></span></a>
+                        <a class="wp six" rel="girls-gallery" href="http://www.katieplusluke.com/images/gallery/girls6.jpg" title="Beth Buer">Photo One<span></span></a>
+                        <a class="wp seven" rel="girls-gallery" href="http://www.katieplusluke.com/images/gallery/girls7.jpg" title="Kate Spencer">Photo One<span></span></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RSVP Frame -->
+
+        <div class="rsvp slide">
+            <div class="content-box">
+
+                <div class="rsvp-title"><h1>RSVP: Come Join the Party!</h1></div>
+
+                <h2>Tell us if you're coming!</h2>
+
+                <form name="rsvp-now" class="rsvp-now" action="http://www.katieplusluke.com/send.php" method="post" onsubmit="window.open( & #39; & #39; , & #39; my_form_target & #39; , & #39; width = 300, height = 120 & #39; , true); this.target = & #39; my_form_target & #39; ;">
+
+                    <div class="labels">
+                        <label for="name"><h3 class="your-name">Your Name</h3></label>
+                        <label for="guests"><h3 class="guest-name">Name of Guest<span>(s)</span></h3></label>
+                        <label for="attending"><h3 class="attending"># Attending</h3></label>
+                        <label for="email"><h3 class="email">Email</h3></label>
+                    </div>
+
+                    <div class="forms">
+                        <input type="text" name="name" id="name-form" size="45">
+                        <input type="text" name="guests" id="guest-form" size="45">
+                        <input type="text" name="attending" id="attending-form" size="45">
+                        <input type="text" name="email" id="email-form" size="45">
+                    </div>
+
+                    <div class="submit-container">
+
+                        <div class="password-container">
+                            <label for="password"><h3 class="password">Password</h3></label>
+                            <input type="text" name="password" id="password-form" size="45">
+                        </div>
+
+                        <div class="submit">
+                            <input class="submit-btn" type="submit" name="submit" value="submit">
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <h3 class="questions">For Questions Email: <a href="mailto:katieplusluke@gmail.com">katieplusluke@gmail.com</a></h3>
+
+            </div>
+        </div>
+
+        <!-- Gifts Frame -->
+
+        <div class="gifts slide">
+            <div class="content-box">
+
+                <div class="gifts-title"><h1>Gifts &amp; Registry</h1></div>
+
+
+                <h2>Check out our registry</h2>
+
+                <div class="registry-imgs">
+                    <a href="http://www.williams-sonoma.com/registry/3056782/registry-list.html" target="_blank" class="registry wsonoma">Williams Sonoma<span></span></a>
+                    <a href="http://www.target.com/RegistryGiftGiverCmd?isPreview=false&amp;status=completePageLink&amp;listId=w-kmr8yaw1RCfNeRX30htQ&amp;registryType=WD&amp;cumulativeTime=-1&amp;isAjax=false&amp;noOfPings=" target="_blank" class="registry target">Target<span></span></a>
+                    <a href="http://www.bedbathandbeyond.com/regGiftRegistry.asp?wrn=-1555599720&amp;" target="_blank" class="registry bbeyond">Bed Bath &amp; Beyond<span></span></a>
+                    <a href="http://www.potterybarn.com/registry/3056781/registry-list.html" target="_blank" class="registry pbarn">Pottery Barn<span></span></a>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Bottom Nav -->	
+
+        <div id="bottom-nav">
+            <img src="./index_files/next-dk.png" alt="Next">
+            <div id="next">
+                <img src="./index_files/next.png" alt="Next">
+            </div>
+        </div>
+
+        <!-- Footer -->	
+
+        <div id="footer">
+            <div class="social">
+                <div class="like">
+                    <iframe src="./index_files/like.html" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowtransparency="true"></iframe>
+                </div>
+                <div class="tweet">
+                    <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./index_files/tweet_button.c60d5b0c77548151ea09cd595348dc2d.en.html" style="position: static; visibility: visible; width: 61px; height: 20px;"></iframe>
+                    <script>!function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (!d.getElementById(id)) {
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = "//platform.twitter.com/widgets.js";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }
+                        }(document, "script", "twitter-wjs");</script>
+                </div>
+                <a class="luke-logo" href="http://www.lukeclum.com/">www.lukeclum.com<span></span></a>
+            </div>
+        </div>
+
+        <div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;"></iframe></body></html>
