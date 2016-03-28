@@ -302,8 +302,8 @@ window.onload = function()
 	//positionFireworksContainer();
 	resetFunctions();
 	positionSplashContainer();
-	/*setRobbyLeftAndRightEdge();
-	positionContactConfirmationContainer();
+	setRobbyLeftAndRightEdge();
+	/*positionContactConfirmationContainer();
 	hideContactConfirmationContainer();
 	hideRobbyEyesClose();
 	animateRobbyEyes();
@@ -335,12 +335,12 @@ window.onresize = function (e)
 	orientRobby();
 	setLayerSpeed();
 	moveLayers(); //before blinkRobbyEyes(), positionBalloonAndRobbyContainerHorizontally(), animateRobbyRunSwim(), shiftRobbyFrame(), positionContactConfirmationContainer()
-	setRobbyLeftAndRightEdge();
+	/*setRobbyLeftAndRightEdge();
 	shiftUpDownHorizontalLayersOnResize();
-	animateInformationAndEnemiesElements();
+	animateInformationAndEnemiesElements();*/
 	positionSplashContainer();
 	positionRobbyContainerVertically();
-	positionBalloonVertically();
+	/*positionBalloonVertically();
 	positionSocialContainer();
 	positionPlants();
 	hideContactConfirmationContainer();
@@ -349,7 +349,7 @@ window.onresize = function (e)
 	positionChainBlockAndStringContainer();
 	positionSeaFloorObjectsVertically();
 	enableScrollOrSwipe();
-	printResizeText();
+	printResizeText();*/
 }
 
 //use orientation change function below to handle so orientation screen bug in android
@@ -514,7 +514,7 @@ function finishShiftUpHorizontalLayersAfterEverythingLoaded()
 		isPreloadShiftUpAnimationFinish = true;
 		
 		makePageScrollable();
-		//shiftDownRobbyContainer();
+		shiftDownRobbyContainer();
 		animateScrollOrSwipeTextContainer();
 	}
 }
@@ -674,9 +674,9 @@ function moveLayers()
 		drawManyFireworks();
 	}
 	
-	positionBalloonAndRobbyContainerHorizontally();
+	/*positionBalloonAndRobbyContainerHorizontally();
 	positionContactContainer();
-	positionFireworksContainer();
+	positionFireworksContainer();*/
 }
 
 function positionVerticalLayersAtLeftMost()
