@@ -261,8 +261,7 @@ var canDrawManyFireworks = true;
 disableIsRobbyJumpingAndFalling();
 
 var landInformationContainerArray = new Array();
-//landInformationContainerArray.push(about1ContainerDiv, about2ContainerDiv, about3ContainerDiv, experience1ContainerDiv, experience2ContainerDiv, experience3ContainerDiv);
-landInformationContainerArray.push(about1ContainerDiv);
+landInformationContainerArray.push(about1ContainerDiv, about2ContainerDiv, about3ContainerDiv, experience1ContainerDiv, experience2ContainerDiv, experience3ContainerDiv);
 var seaInformationContainerArray = new Array();
 seaInformationContainerArray.push(skill1ContainerDiv, skill2ContainerDiv, skill3ContainerDiv);
 
@@ -286,7 +285,7 @@ window.onload = function ()
     storeDivs();
 
     setFrontLayerVerticalHeight();
-//	setBannersContainerVerticalPosition();
+    setBannersContainerVerticalPosition();
 
     shiftUpPreloader(); //function in preloader.js
     showContainer();
@@ -297,24 +296,24 @@ window.onload = function ()
     setPageHeight();
     setLayerSpeed();
     positionVerticalLayersHorizontally();
-    //positionBalloonAndRobbyContainerHorizontally();
-    //positionBalloonVertically();
-    //positionContactContainer();
-    //positionFireworksContainer();
+    positionBalloonAndRobbyContainerHorizontally();
+    positionBalloonVertically();
+    positionContactContainer();
+    positionFireworksContainer();
     resetFunctions();
     positionSplashContainer();
     setRobbyLeftAndRightEdge();
     positionContactConfirmationContainer();
-     hideContactConfirmationContainer();
-     hideRobbyEyesClose();
-     animateRobbyEyes();
-     animateWaterfall();
-     positionSeaFloorObjectsVertically();
-     openSquidHands();
-     hideBubble();
-     setRobotHandsToDefault();
-     createFireworkSvg();
-     appendFireworkSvgToContainer();
+    hideContactConfirmationContainer();
+    hideRobbyEyesClose();
+    animateRobbyEyes();
+    animateWaterfall();
+    positionSeaFloorObjectsVertically();
+    openSquidHands();
+    hideBubble();
+    setRobotHandsToDefault();
+    createFireworkSvg();
+    appendFireworkSvgToContainer();
 }
 
 window.onscroll = function (e)
@@ -329,7 +328,7 @@ window.onscroll = function (e)
 window.onresize = function (e)
 {
     setFrontLayerVerticalHeight();
-//	setBannersContainerVerticalPosition();
+    setBannersContainerVerticalPosition();
 
     setPageHeight();
     detectPageVerticalPosition();
@@ -337,18 +336,18 @@ window.onresize = function (e)
     setLayerSpeed();
     moveLayers(); //before blinkRobbyEyes(), positionBalloonAndRobbyContainerHorizontally(), animateRobbyRunSwim(), shiftRobbyFrame(), positionContactConfirmationContainer()
     setRobbyLeftAndRightEdge();
-     shiftUpDownHorizontalLayersOnResize();
-     animateInformationAndEnemiesElements();
+    shiftUpDownHorizontalLayersOnResize();
+    animateInformationAndEnemiesElements();
     positionSplashContainer();
     positionRobbyContainerVertically();
     positionBalloonVertically();
-     positionSocialContainer();
-     positionPlants();
-     hideContactConfirmationContainer();
-     positionContactConfirmationContainer();
-     positionExperienceTextContainer();
-     positionChainBlockAndStringContainer();
-     positionSeaFloorObjectsVertically();
+    positionSocialContainer();
+    positionPlants();
+    hideContactConfirmationContainer();
+    positionContactConfirmationContainer();
+    positionExperienceTextContainer();
+    positionChainBlockAndStringContainer();
+    positionSeaFloorObjectsVertically();
     enableScrollOrSwipe();
     printResizeText();
 }
@@ -375,10 +374,11 @@ function disableScrollOrSwipe()
 
 function initVariablesAfterShowContainer() //give variables value based on width height div etc
 {
-    /*fireworkCenterX = 0.5 * fireworkArray[0].offsetWidth;
+    return;
+    fireworkCenterX = 0.5 * fireworkArray[0].offsetWidth;
     fireworkCenterY = 0.5 * fireworkArray[0].offsetHeight;
     fireworkOneRadiusDistance = (fireworkCenterY - fireworkDotRadius) / fireworkRowNumber;
-    fireworkOneRotationAngle = 2 * Math.PI / fireworkColumnNumber;*/
+    fireworkOneRotationAngle = 2 * Math.PI / fireworkColumnNumber;
 }
 
 function resetVariables()
@@ -413,27 +413,27 @@ function resetFunctions()
     positionPlants();
     positionBuildings();
 
-	if (isFishStillAnimating == false)
-	{
-		positionSeaAnimals(fishArray, numberOfFishInEachRowArray, 150, 100);
-	}
-	if (isCrabStillAnimating == false)
-	{	
-		positionSeaAnimals(crabArray, numberOfCrabInEachRowArray, 150, 100);
-	}
-	if (isTurtleStillAnimating == false)
-	{
-		positionSeaAnimals(turtleArray, numberOfTurtleInEachRowArray, 150, 100);
-	}
+    if (isFishStillAnimating == false)
+    {
+        positionSeaAnimals(fishArray, numberOfFishInEachRowArray, 150, 100);
+    }
+    if (isCrabStillAnimating == false)
+    {
+        positionSeaAnimals(crabArray, numberOfCrabInEachRowArray, 150, 100);
+    }
+    if (isTurtleStillAnimating == false)
+    {
+        positionSeaAnimals(turtleArray, numberOfTurtleInEachRowArray, 150, 100);
+    }
 
     positionNbaElements();
-     positionExperience1Elements();
-     positionExperience2Elements();
-     positionExperience3Elements();
-     positionSocialContainer();
-     positionExperienceTextContainer();
-     positionChainBlockAndStringContainer();
-     resetFireworkSvg();
+    positionExperience1Elements();
+    positionExperience2Elements();
+    positionExperience3Elements();
+    positionSocialContainer();
+    positionExperienceTextContainer();
+    positionChainBlockAndStringContainer();
+    resetFireworkSvg();
 }
 
 function initTouchEvents()
@@ -483,6 +483,7 @@ function runTheseFunctionsAfterScrollOrSwipe()
     deviceFunctionScrollSwipe();
 
     printScrollSwipeText();
+    checkIfBus();
 }
 
 function deviceFunctionScrollSwipe()
@@ -547,14 +548,15 @@ function makePageScrollable()
 
 function setFrontLayerVerticalHeight()
 {
-    //layerVerticalArray[layerVerticalArray.length - 1].style.height = (2 * containerDiv.offsetHeight) + bannersContainerDiv.offsetHeight + gapBetweenContactCloudAndBannersContainer + "px";
+    /*layerVerticalArray[layerVerticalArray.length - 1].style.height = (2 * containerDiv.offsetHeight) + bannersContainerDiv.offsetHeight + gapBetweenContactCloudAndBannersContainer + "px";*/
     layerVerticalArray[layerVerticalArray.length - 1].style.height = (2 * containerDiv.offsetHeight) + "px";
 }
 
-//function setBannersContainerVerticalPosition()
-//{
-//	bannersContainerDiv.style.bottom = containerDiv.offsetHeight + "px";
-//}
+function setBannersContainerVerticalPosition()
+{
+    return;
+    bannersContainerDiv.style.bottom = containerDiv.offsetHeight + "px";
+}
 
 function setPageHeight()
 {
@@ -683,8 +685,8 @@ function moveLayers()
     }
 
     positionBalloonAndRobbyContainerHorizontally();
-     positionContactContainer();
-     positionFireworksContainer();
+    positionContactContainer();
+    positionFireworksContainer();
 }
 
 function positionVerticalLayersAtLeftMost()
@@ -746,11 +748,30 @@ function positionVerticalLayersBottomToHorizontalLayersBottom()
 
 function shiftUpDownHorizontalLayers()
 {
-    isRobbySwimming = false;
+    return;
+    if (
+            ((previousPageVerticalPosition < sea1Div.offsetLeft - robbyLeftEdge) || (previousPageVerticalPosition > sea1Div.offsetLeft + sea1Div.offsetWidth - robbyRightEdge))
+            &&
+            ((pageVerticalPosition >= sea1Div.offsetLeft - robbyLeftEdge) && (pageVerticalPosition <= sea1Div.offsetLeft + sea1Div.offsetWidth - robbyRightEdge))
+            )
+    {
+        isRobbySwimming = true;
+        shiftUpLayerHorizontal();
+        shiftRobbyToSeaFloor();
+        createBubble();
+    }
+    if (
+            ((previousPageVerticalPosition >= sea1Div.offsetLeft - robbyLeftEdge) && (previousPageVerticalPosition <= sea1Div.offsetLeft + sea1Div.offsetWidth - robbyRightEdge))
+            &&
+            ((pageVerticalPosition < sea1Div.offsetLeft - robbyLeftEdge) || (pageVerticalPosition > sea1Div.offsetLeft + sea1Div.offsetWidth - robbyRightEdge))
+            )
+    {
+        isRobbySwimming = false;
         shiftDownLayerHorizontal();
         shiftRobbyToGroundLevel();
         clearInterval(bubbleTimer);
         clearInterval(blinkSeaAnimalsTimer);
+    }
 }
 
 function shiftUpDownHorizontalLayersOnResize()
@@ -886,7 +907,7 @@ function moveDownLayerHorizontal() //robby from sea to ground
             }
 
             //check if robby already above sea level or not
-            if (robbyContainerDiv.offsetTop < layerHorizontalArray[layerHorizontalArray.length - 1].offsetTop)
+            if (robbyContainerDiv.offsetTop < sea1Div.offsetTop + layerHorizontalArray[layerHorizontalArray.length - 1].offsetTop)
             {
                 isRobbyBelowSeaLevel = false;
             }
@@ -993,7 +1014,7 @@ function robbyJumpUp(i)
     {
         positionRobbyAtGroundLevel();
         $(robbyContainerDiv).stop().animate({bottom: [containerDiv.offsetHeight - groundAndGrassContainer1Div.offsetTop + 300, 'easeOutCubic']}, 300, function () {
-            robbyJumpDown(i);
+            robbyJumpDown(i)
         });
         setRobbyJumpUpFrame();
     }
@@ -1144,16 +1165,16 @@ function positionBalloonAndRobbyContainerHorizontally()
 
     //calculate balloonHorizontalDistance
     /*var balloonMaxHorizontalDistance = (0.5 * containerDiv.offsetWidth) + balloonMaxHorizontalDistanceFromCenter;
-    var balloonHorizontalDistance = (0.5 * (containerDiv.offsetWidth - balloonDiv.offsetWidth)) + layerVerticalMovementDistance;
-    if (balloonHorizontalDistance >= balloonMaxHorizontalDistance)
-    {
-        balloonHorizontalDistance = balloonMaxHorizontalDistance;
-    }*/
+     var balloonHorizontalDistance = (0.5 * (containerDiv.offsetWidth - balloonDiv.offsetWidth)) + layerVerticalMovementDistance;
+     if (balloonHorizontalDistance >= balloonMaxHorizontalDistance)
+     {
+     balloonHorizontalDistance = balloonMaxHorizontalDistance;
+     }*/
 
     if (layersMovement == "vertical")
     {
         //shift balloon to right
-        balloonDiv.style.left = balloonHorizontalDistance + "px";
+        /*balloonDiv.style.left = balloonHorizontalDistance + "px";*/
 
         //shift robby to right
         robbyContainerDiv.style.left = robbyHorizontalDistance + "px";
@@ -1165,18 +1186,19 @@ function positionBalloonAndRobbyContainerHorizontally()
         robbyContainerDiv.style.left = robbyHorizontalDistance + pageVerticalPosition - (pageDiv.offsetHeight - containerDiv.offsetHeight - distanceBetweenRobbyAndBalloon) + "px";
 
         //reposition balloon for on resize
-        balloonDiv.style.left = balloonHorizontalDistance + "px";
+        /*balloonDiv.style.left = balloonHorizontalDistance + "px"; */
     }
     else
     {
         //balloon and robby still in normal position
-//        balloonDiv.style.left = layerHorizontalArray[layerHorizontalArray.length - 1].offsetLeft + layerHorizontalArray[layerHorizontalArray.length - 1].offsetWidth - (0.5 * (containerDiv.offsetWidth + balloonDiv.offsetWidth)) + "px";
+        /*balloonDiv.style.left = layerHorizontalArray[layerHorizontalArray.length - 1].offsetLeft + layerHorizontalArray[layerHorizontalArray.length - 1].offsetWidth - (0.5 * (containerDiv.offsetWidth + balloonDiv.offsetWidth)) + "px";*/
         robbyContainerDiv.style.left = "50%";
     }
 }
 
 function positionBalloonVertically() //to fix the bug in android change screen orientation
 {
+    return;
     balloonDiv.style.bottom = (0.2 * containerDiv.offsetHeight) + "px";
 }
 
@@ -1205,10 +1227,12 @@ function orientRobby()
     if (deltaPageVerticalPosition > 0)
     {
         robbyFramesDiv.style.top = "0px";
+        /*robbyEyesCloseDiv.style.left = "90px";*/
     }
     if (deltaPageVerticalPosition < 0)
     {
         robbyFramesDiv.style.top = "-200px";
+        /*robbyEyesCloseDiv.style.left = "55px";*/
     }
 }
 
@@ -1533,16 +1557,18 @@ function positionNbaElements()
 
 function positionNbaPlayerContainer()
 {
-    /*nbaPlayerContainerDiv.style.left = "1400px";
-    nbaPlayerContainerDiv.style.bottom = "0px";*/
+    return;
+    nbaPlayerContainerDiv.style.left = "1400px";
+    nbaPlayerContainerDiv.style.bottom = "0px";
 }
 
 function hideNbaBall()
 {
-    /*$(nbaBallDiv).fadeTo(0, 0);
+    return;
+    $(nbaBallDiv).fadeTo(0, 0);
 
     nbaBallDiv.style.left = "415px";
-    nbaBallDiv.style.bottom = "250px";*/
+    nbaBallDiv.style.bottom = "250px";
 }
 
 function animateNbaPlayerEyes()
@@ -1594,7 +1620,8 @@ function stopAllNbaAnimation()
 
 function positionSeaAnimals(seaAnimalArray, numberOfSeaAnimalInEachRowArray, horizontalDistanceBetweenAnimals, verticalDistanceBetweenAnimals)
 {
-    /*var seaAnimalLocalArray = seaAnimalArray;
+    return;
+    var seaAnimalLocalArray = seaAnimalArray;
     var numberOfSeaAnimalInEachRowLocalArray = numberOfSeaAnimalInEachRowArray;
     var columnDistance = horizontalDistanceBetweenAnimals;
     var rowDistance = verticalDistanceBetweenAnimals;
@@ -1609,7 +1636,7 @@ function positionSeaAnimals(seaAnimalArray, numberOfSeaAnimalInEachRowArray, hor
             seaAnimalLocalArray[seaAnimalLocalNumber].style.top = (i * rowDistance) + "px";
             seaAnimalLocalNumber = seaAnimalLocalNumber + 1;
         }
-    }*/
+    }
 }
 
 function animateSeaAnimals(seaAnimalArray)
@@ -1854,10 +1881,11 @@ function animateExperienceTextContainer(experienceTextContainerNumber)
 
 function positionExperience1Elements()
 {
-    /*robotDiv.style.left = experience1ContainerDiv.offsetWidth + "px";
+    return;
+    robotDiv.style.left = experience1ContainerDiv.offsetWidth + "px";
 
     $(piechartAolTextGraphic1Div).fadeTo(0, 0);
-    $(piechartAolTextGraphic2Div).fadeTo(0, 0);*/
+    $(piechartAolTextGraphic2Div).fadeTo(0, 0);
 }
 
 function positionExperience2Elements()
@@ -1898,6 +1926,7 @@ function positionExperience3Elements()
 
 function animateInformationAndEnemiesElements()
 {
+    return;
     if (layersMovement == "horizontal")
     {
         if (isRobbySwimming == false)
@@ -1919,80 +1948,129 @@ function animateInformationAndEnemiesElements()
                     }
 
                     //buildings
-//                    if (landInformationContainerArray[i] == about2ContainerDiv)
-//                    {
-//                        animateBuildingsEyes();
-//
-//                        if (canAnimateBuildingInformation == true)
-//                        {
-//                            animateBuildings();
-//                            canAnimateBuildingInformation = false;
-//                        }
-//                    }
-//
-//                    //nba
-//                    if (landInformationContainerArray[i] == about3ContainerDiv)
-//                    {
-//                        animateNbaPlayerEyes();
-//
-//                        if (canAnimateNbaInformation == true)
-//                        {
-//                            animateNbaPlayer();
-//                            canAnimateNbaInformation = false;
-//                        }
-//                    }
-//
-//                    //robot
-//                    if (landInformationContainerArray[i] == experience1ContainerDiv)
-//                    {
-//                        if (canAnimateRobotInformation == false) //if true, animateRobotHands will be execute after robot finish move from left to right
-//                        {
-//                            animateRobotHands();
-//                        }
-//                        else
-//                        {
-//                            animateRobot();
-//                            animateExperienceTextContainer(0);
-//                            animateChainBlockAndStringContainer(0);
-//                            canAnimateRobotInformation = false;
-//                        }
-//                    }
-//
-//                    //squid
-//                    if (landInformationContainerArray[i] == experience2ContainerDiv)
-//                    {
-//                        if (canAnimateSquidInformation == false) //if true, animateSquidHands will be execute after squid finish move from left to right
-//                        {
-//                            animateSquidHands();
-//                        }
-//                        else
-//                        {
-//                            animateSquid();
-//                            animateExperienceTextContainer(1);
-//                            animateChainBlockAndStringContainer(1);
-//                            canAnimateSquidInformation = false;
-//                        }
-//                    }
-//
-//                    //alien
-//                    if (landInformationContainerArray[i] == experience3ContainerDiv)
-//                    {
-//                        if (canAnimateAlienInformation == false) //if true, animateAlienHand will be execute after alien finish move from left to right
-//                        {
-//                            animateAlienHand();
-//                        }
-//                        else
-//                        {
-//                            animateAlien();
-//                            animateExperienceTextContainer(2);
-//                            animateChainBlockAndStringContainer(2);
-//                            canAnimateAlienInformation = false;
-//                        }
-//                    }
+                    if (landInformationContainerArray[i] == about2ContainerDiv)
+                    {
+                        animateBuildingsEyes();
+
+                        if (canAnimateBuildingInformation == true)
+                        {
+                            animateBuildings();
+                            canAnimateBuildingInformation = false;
+                        }
+                    }
+
+                    //nba
+                    if (landInformationContainerArray[i] == about3ContainerDiv)
+                    {
+                        animateNbaPlayerEyes();
+
+                        if (canAnimateNbaInformation == true)
+                        {
+                            animateNbaPlayer();
+                            canAnimateNbaInformation = false;
+                        }
+                    }
+
+                    //robot
+                    if (landInformationContainerArray[i] == experience1ContainerDiv)
+                    {
+                        if (canAnimateRobotInformation == false) //if true, animateRobotHands will be execute after robot finish move from left to right
+                        {
+                            animateRobotHands();
+                        }
+                        else
+                        {
+                            animateRobot();
+                            animateExperienceTextContainer(0);
+                            animateChainBlockAndStringContainer(0);
+                            canAnimateRobotInformation = false;
+                        }
+                    }
+
+                    //squid
+                    if (landInformationContainerArray[i] == experience2ContainerDiv)
+                    {
+                        if (canAnimateSquidInformation == false) //if true, animateSquidHands will be execute after squid finish move from left to right
+                        {
+                            animateSquidHands();
+                        }
+                        else
+                        {
+                            animateSquid();
+                            animateExperienceTextContainer(1);
+                            animateChainBlockAndStringContainer(1);
+                            canAnimateSquidInformation = false;
+                        }
+                    }
+
+                    //alien
+                    if (landInformationContainerArray[i] == experience3ContainerDiv)
+                    {
+                        if (canAnimateAlienInformation == false) //if true, animateAlienHand will be execute after alien finish move from left to right
+                        {
+                            animateAlienHand();
+                        }
+                        else
+                        {
+                            animateAlien();
+                            animateExperienceTextContainer(2);
+                            animateChainBlockAndStringContainer(2);
+                            canAnimateAlienInformation = false;
+                        }
+                    }
                 }
             }
         }
 
+        //sea animals
+        if (isRobbySwimming == true)
+        {
+            for (var i = 0; i < seaInformationContainerArray.length; i++)
+            {
+                if (
+                        ((previousPageVerticalPosition + (0.5 * containerDiv.offsetWidth) < sea1Div.offsetLeft + seaInformationContainerArray[i].offsetLeft) || (previousPageVerticalPosition + (0.5 * containerDiv.offsetWidth) > sea1Div.offsetLeft + seaInformationContainerArray[i].offsetLeft + seaInformationContainerArray[i].offsetWidth))
+                        &&
+                        ((pageVerticalPosition + (0.5 * containerDiv.offsetWidth) > sea1Div.offsetLeft + seaInformationContainerArray[i].offsetLeft) && (pageVerticalPosition + (0.5 * containerDiv.offsetWidth) < sea1Div.offsetLeft + seaInformationContainerArray[i].offsetLeft + seaInformationContainerArray[i].offsetWidth))
+                        )
+                {
+                    //fish
+                    if (seaInformationContainerArray[i] == skill1ContainerDiv)
+                    {
+                        makeSeaAnimalsBlinking(fishEyeArray);
+
+                        if (canAnimateFishInformation == true)
+                        {
+                            animateSeaAnimals(fishArray);
+                            canAnimateFishInformation = false;
+                        }
+                    }
+
+                    //crab
+                    if (seaInformationContainerArray[i] == skill2ContainerDiv)
+                    {
+                        makeSeaAnimalsBlinking(crabEyeArray);
+
+                        if (canAnimateCrabInformation == true)
+                        {
+                            animateSeaAnimals(crabArray);
+                            canAnimateCrabInformation = false;
+                        }
+                    }
+
+                    //turtle
+                    if (seaInformationContainerArray[i] == skill3ContainerDiv)
+                    {
+                        makeSeaAnimalsBlinking(turtleEyeArray);
+
+                        if (canAnimateTurtleInformation == true)
+                        {
+                            animateSeaAnimals(turtleArray);
+                            canAnimateTurtleInformation = false;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -2447,7 +2525,6 @@ function animateSocialContainer()
 
 function setSocialContainerOpacity(socialContainerOpacity) //custome social container and icon set opacity for internet explorer 8
 {
-    return;
     if (socialContainerOpacity > 1)
     {
         socialContainerOpacity = 1;
@@ -2504,6 +2581,21 @@ function positionSplashContainer()
 {
     splashContainerDiv.style.left = (0.5 * (containerDiv.offsetWidth - splashContainerDiv.offsetWidth)) + "px";
 }
+var lastpageVerticalPosition = 0;
+function checkIfBus() {
+    if (lastpageVerticalPosition > 0) {
+        var diferencia = pageVerticalPosition - lastpageVerticalPosition
+        var posicion = elevation1Div.offsetLeft-robbyRightEdge + elevation1Div.offsetWidth;
+        
+        if (pageVerticalPosition < posicion && posicion < (pageVerticalPosition+diferencia)){
+            disableScrollOrSwipe();
+    $(about1ContainerDiv).addClass('puertabierta');
+        }
+        
+    }
+    lastpageVerticalPosition = pageVerticalPosition;
+
+}
 
 function positionRobbyContainerVertically()
 {
@@ -2544,6 +2636,7 @@ function positionRobbyAtSeaFloorLevel()
 
 function checkElevationNumberBelowRobby()
 {
+
     for (var i = 0; i < elevationArray.length; i++)
     {
         if ((pageVerticalPosition < elevationArray[i].offsetLeft + elevationArray[i].offsetWidth - robbyLeftEdge) && (pageVerticalPosition > elevationArray[i].offsetLeft - robbyRightEdge))
