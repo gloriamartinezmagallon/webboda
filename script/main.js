@@ -270,6 +270,14 @@ setAllNbaCounter();
 var canScrollOrSwipe;
 disableScrollOrSwipe();
 
+//GLORIA
+
+var lastpageVerticalPosition = 0;
+var robbydentrodelbus = false;
+var busEnMarcha = document.getElementById("bus-enmarcha");
+var ruedasanimacionTimer;
+var ruedaimagen = 0;
+
 //so browser will not jump to last position when refresh
 $(window).on('beforeunload', function () {
     $(window).scrollTop(0);
@@ -314,6 +322,8 @@ window.onload = function ()
     setRobotHandsToDefault();
     createFireworkSvg();
     appendFireworkSvgToContainer();
+    
+    animateRuedas();
 }
 
 window.onscroll = function (e)
@@ -776,6 +786,7 @@ function shiftUpDownHorizontalLayers()
 
 function shiftUpDownHorizontalLayersOnResize()
 {
+    return;
     if
             (
                     ((pageVerticalPosition >= sea1Div.offsetLeft - robbyLeftEdge) && (pageVerticalPosition <= sea1Div.offsetLeft + sea1Div.offsetWidth - robbyRightEdge))
@@ -1825,7 +1836,7 @@ function positionChainBlockAndStringContainer()
         }
 
         //position x
-        chainBlockAndStringContainerArray[i].style.left = (0.5 * experienceTextContainerArray[i].offsetWidth) - (0.5 * chainBlockAndStringContainerArray[i].offsetWidth) + "px";
+        chainBlockAndStringContainerArray[i].style.left = (experienceTextContainerArray[i].offsetLeft +(0.5 * experienceTextContainerArray[i].offsetWidth) - (0.5 * chainBlockAndStringContainerArray[i].offsetWidth)) + "px";
 
         //position y
         if (canAnimateBossInformation == true)
@@ -2581,20 +2592,55 @@ function positionSplashContainer()
 {
     splashContainerDiv.style.left = (0.5 * (containerDiv.offsetWidth - splashContainerDiv.offsetWidth)) + "px";
 }
-var lastpageVerticalPosition = 0;
+
+
 function checkIfBus() {
     if (lastpageVerticalPosition > 0) {
         var diferencia = pageVerticalPosition - lastpageVerticalPosition
         var posicion = elevation1Div.offsetLeft-robbyRightEdge + elevation1Div.offsetWidth;
         
         if (pageVerticalPosition < posicion && posicion < (pageVerticalPosition+diferencia)){
-            disableScrollOrSwipe();
-    $(about1ContainerDiv).addClass('puertabierta');
+//            disableScrollOrSwipe();
+            $(about1ContainerDiv).addClass('puertabierta');
+            
+        }else if (pageVerticalPosition < posicion && $(about1ContainerDiv).hasClass('puertabierta')){
+            $(about1ContainerDiv).removeClass('puertabierta').removeClass('busconrobby');
+            pararBus();
+        }else if ($(about1ContainerDiv).hasClass('puertabierta')){
+            $(about1ContainerDiv).addClass('busconrobby');
+            andarBus();
         }
         
     }
     lastpageVerticalPosition = pageVerticalPosition;
 
+}
+
+function animateRuedas()
+{
+    clearInterval(ruedasanimacionTimer);
+    ruedasanimacionTimer = setInterval(function () {
+        moverRuedas();
+    }, 100); //start mover ruedas
+}
+function moverRuedas(){
+    ruedaimagen++;
+    console.log(ruedaimagen);
+    $('.ruedaanimate').css('backgroundPosition',((ruedaimagen % 4)*-100)+'px 0');
+}
+function pararBus(){
+    $(robbyContainerDiv).show();
+    $(about1ContainerDiv).show();
+    $(busEnMarcha).hide();
+}
+
+function andarBus(){
+    $(robbyContainerDiv).hide();
+    $(about1ContainerDiv).hide();
+    $(busEnMarcha).show();
+}
+function continuarBus(){
+    enableScrollOrSwipe();
 }
 
 function positionRobbyContainerVertically()
