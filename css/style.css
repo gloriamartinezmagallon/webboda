@@ -335,9 +335,9 @@ body
 #buildings-container
 {
     position: absolute;
-    left: 4980px;
+    left: 4098px;
     bottom: 20%;
-    width: 900px;
+    width: 1800px;
     height: 80%;
 }
 
@@ -942,17 +942,17 @@ body
     height: 44px;
 }
 
-#elevation-1 .grass{
+#elevation-1 .grass, #elevation-2 .grass{
     height: 20px;
     background-position-y: -30px;
 }
 
 #elevation-2
 {
-    left: 6080px;
+    left: 4580px;
     bottom: 20%;
-    width: 400px;
-    height: 120px;
+    width: 300px;
+    height: 44px;
 }
 
 #elevation-3
@@ -1404,7 +1404,7 @@ body
     position: absolute;
     left: 0px;
     top: 80%;
-    width: 8100px;
+    width: 15000px;
     height: 90%;
 }
 
@@ -1992,6 +1992,27 @@ img
     display:none;
 }
 
+#nba-container{
+    background-image: url(../image/castillo-01.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    width: 1876px;
+    bottom: 18%;
+}
+
+#bus-parada{
+    position: absolute;
+    bottom: 0;
+    width: 900px;
+    height: 80%;
+    background-image: url(../image/buspuertaabierta.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    display:none;
+}
+
 .ruedaanimate {
     background-image: url(../image/ruedabus.png);
     position: absolute;
@@ -2018,13 +2039,18 @@ img
     background-repeat: no-repeat;
     background-position-y: 100%;
 }
-#plants-container.puertabierta
+#plants-container.puertaabierta
 {
     background-image: url(../image/buspuertaabierta.png);
 }
+
 #plants-container.busconrobby
 {
     background-image: url(../image/buswithrobby.png);
+}
+
+#plants-container.sinimagen{
+    background-image: none;
 }
 
 .plant-line
@@ -2944,54 +2970,54 @@ img
 
 #tree-11
 {
-    left: -100px;
+    left: 800px;
     bottom: 0px;
 }
 
 #tree-12
 {
-    left: 20px;
+    left: 920px;
     bottom: 0px;
 }
 #tree-13
 {
-    left: 140px;
+    left: 1040px;
     bottom: 0px;
 }
 
 #tree-14
 {
-    left: 260px;
+    left: 1160px;
     bottom: 0px;
 }
 
 #tree-15
 {
-    left: 380px;
+    left: 1280px;
     bottom: 0px;
 }
 
 #tree-16
 {
-    left: 500px;
+    left: 1400px;
     bottom: 0px;
 }
 
 #tree-17
 {
-    left: 620px;
+    left: 1520px;
     bottom: 0px;
 }
 
 #tree-18
 {
-    left: 740px;
+    left: 1640px;
     bottom: 0px;
 }
 
 #tree-19
 {
-    left: 860px;
+    left: 1760px;
     bottom: 0px;
 }
 
@@ -3211,7 +3237,7 @@ img
 
 #bus-horarios{
     background-image: url(../image/bushorarios.png);
-    width: 100%;
+    width: 300px;
     height: 100%;
     position: absolute;
     bottom: 0;
@@ -3219,4 +3245,14 @@ img
     background-size: contain;
     background-position: 100% 100%;
     background-repeat: no-repeat;
+}
+
+#plants-container{
+    z-index: 255;
+}
+#elevation-1, #elevation-2{
+    z-index: 256;
+}
+#robby-container{
+    z-index: 257;
 }

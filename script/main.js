@@ -272,9 +272,10 @@ disableScrollOrSwipe();
 
 //GLORIA
 
-var lastpageVerticalPosition = 0;
 var robbydentrodelbus = false;
 var busEnMarcha = document.getElementById("bus-enmarcha");
+var busParada = document.getElementById("bus-parada");
+
 var ruedasanimacionTimer;
 var ruedaimagen = 0;
 
@@ -322,7 +323,7 @@ window.onload = function ()
     setRobotHandsToDefault();
     createFireworkSvg();
     appendFireworkSvgToContainer();
-    
+
     animateRuedas();
 }
 
@@ -628,8 +629,8 @@ function detectPageVerticalPosition()
             pageVerticalPosition = pageDiv.offsetHeight - containerDiv.offsetHeight;
         }
     }
-
     deltaPageVerticalPosition = pageVerticalPosition - previousPageVerticalPosition;
+    
 
     if (pageVerticalPosition <= 0)
     {
@@ -1836,7 +1837,7 @@ function positionChainBlockAndStringContainer()
         }
 
         //position x
-        chainBlockAndStringContainerArray[i].style.left = (experienceTextContainerArray[i].offsetLeft +(0.5 * experienceTextContainerArray[i].offsetWidth) - (0.5 * chainBlockAndStringContainerArray[i].offsetWidth)) + "px";
+        chainBlockAndStringContainerArray[i].style.left = (experienceTextContainerArray[i].offsetLeft + (0.5 * experienceTextContainerArray[i].offsetWidth) - (0.5 * chainBlockAndStringContainerArray[i].offsetWidth)) + "px";
 
         //position y
         if (canAnimateBossInformation == true)
@@ -2593,26 +2594,34 @@ function positionSplashContainer()
     splashContainerDiv.style.left = (0.5 * (containerDiv.offsetWidth - splashContainerDiv.offsetWidth)) + "px";
 }
 
-
 function checkIfBus() {
-    if (lastpageVerticalPosition > 0) {
-        var diferencia = pageVerticalPosition - lastpageVerticalPosition
-        var posicion = elevation1Div.offsetLeft-robbyRightEdge + elevation1Div.offsetWidth;
+    if (previousPageVerticalPosition > 0) {
+        var posicioninicio = elevation1Div.offsetLeft - robbyRightEdge + elevation1Div.offsetWidth;
+        var posicionfin = elevation2Div.offsetLeft - robbyRightEdge + elevation2Div.offsetWidth - deltaPageVerticalPosition;
         
-        if (pageVerticalPosition < posicion && posicion < (pageVerticalPosition+diferencia)){
+    
+        if (pageVerticalPosition < posicioninicio && posicioninicio < (pageVerticalPosition + deltaPageVerticalPosition)) {
 //            disableScrollOrSwipe();
-            $(about1ContainerDiv).addClass('puertabierta');
-            
-        }else if (pageVerticalPosition < posicion && $(about1ContainerDiv).hasClass('puertabierta')){
-            $(about1ContainerDiv).removeClass('puertabierta').removeClass('busconrobby');
+            $(about1ContainerDiv).addClass('puertaabierta');
+
+        } else if (pageVerticalPosition < posicioninicio && $(about1ContainerDiv).hasClass('puertaabierta')) {
+            $(about1ContainerDiv).removeClass('puertaabierta').removeClass('busconrobby');
             pararBus();
-        }else if ($(about1ContainerDiv).hasClass('puertabierta')){
+
+        } else if (previousPageVerticalPosition + deltaPageVerticalPosition > posicionfin) {
+            $(about1ContainerDiv).addClass('puertaabierta')
+            $(about1ContainerDiv).removeClass('puertaabierta').removeClass('busconrobby');
+            pararBus();
+        } else if (pageVerticalPosition > posicioninicio && pageVerticalPosition < posicionfin) {
+            $(about1ContainerDiv).addClass('busconrobby');
+            andarBus();
+
+        } else if ($(about1ContainerDiv).hasClass('puertaabierta')) {
             $(about1ContainerDiv).addClass('busconrobby');
             andarBus();
         }
-        
+
     }
-    lastpageVerticalPosition = pageVerticalPosition;
 
 }
 
@@ -2623,23 +2632,27 @@ function animateRuedas()
         moverRuedas();
     }, 100); //start mover ruedas
 }
-function moverRuedas(){
+function moverRuedas() {
     ruedaimagen++;
-    console.log(ruedaimagen);
-    $('.ruedaanimate').css('backgroundPosition',((ruedaimagen % 4)*-100)+'px 0');
+    $('.ruedaanimate').css('backgroundPosition', ((ruedaimagen % 4) * -100) + 'px 0');
 }
-function pararBus(){
+function pararBus() {
+    $(busParada).show();
     $(robbyContainerDiv).show();
-    $(about1ContainerDiv).show();
+    $(about1ContainerDiv).removeClass('sinimagen');
     $(busEnMarcha).hide();
 }
 
-function andarBus(){
+function andarBus() {
+    $(about2ContainerDiv).removeClass('puertaabierta')
     $(robbyContainerDiv).hide();
-    $(about1ContainerDiv).hide();
+    $(about1ContainerDiv).addClass('sinimagen');
+    busEnMarcha.offsetLeft = robbyRightEdge;
     $(busEnMarcha).show();
+    
+    $(busParada).hide();
 }
-function continuarBus(){
+function continuarBus() {
     enableScrollOrSwipe();
 }
 
