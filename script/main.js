@@ -17,6 +17,8 @@ var groundAndGrassContainer1Div = document.getElementById("ground-and-grass-cont
 
 var elevation1Div = document.getElementById("elevation-1");
 var elevation2Div = document.getElementById("elevation-2");
+var elevation3Div = document.getElementById("elevation-3");
+var elevation4Div = document.getElementById("elevation-4");
 
 var layerHorizontalArray = new Array();
 var layerVerticalArray = new Array();
@@ -31,7 +33,7 @@ var seaFloorDiv = document.getElementById("sea-floor");
 var seaFloorFrontObjectArray = new Array();
 var seaFloorBackObjectArray = new Array();
 
-var about1ContainerDiv = document.getElementById("plants-container");
+var about1ContainerDiv = document.getElementById("pamplona-container");
 
 var plantLine1Div = document.getElementById("plant-line-1");
 var plantLine2Div = document.getElementById("plant-line-2");
@@ -40,7 +42,7 @@ var plantTargetTopObjectArray = new Array();
 plantTargetTopObjectArray.push(plantLine1Div, plantLine1Div, plantLine2Div, plantLine2Div);
 var canAnimatePlantInformation;
 
-var about2ContainerDiv = document.getElementById("buildings-container");
+var about2ContainerDiv = document.getElementById("buspamplona-container");
 var buildingTargetLeft1 = 0;
 var buildingTargetLeft2 = 305;
 var buildingTargetLeft3 = 710;
@@ -200,7 +202,7 @@ var pageVerticalPositionWhenAnimateRobby2;
 var minimumVerticalDistanceToTriggerRobbySwimDownFrame = 100;
 
 var nbaBoardArray = new Array();
-var about3ContainerDiv = document.getElementById("nba-container");
+var about3ContainerDiv = document.getElementById("castillo-container");
 var nbaPlayerDiv = document.getElementById("nba-player");
 var nbaPlayerContainerDiv = document.getElementById("nba-player-container");
 var nbaPlayerFrameDiv = document.getElementById("nba-player-frame");
@@ -261,7 +263,7 @@ var canDrawManyFireworks = true;
 disableIsRobbyJumpingAndFalling();
 
 var landInformationContainerArray = new Array();
-landInformationContainerArray.push(about1ContainerDiv, about2ContainerDiv, about3ContainerDiv, experience1ContainerDiv, experience2ContainerDiv, experience3ContainerDiv);
+landInformationContainerArray.push(about1ContainerDiv, about2ContainerDiv, about3ContainerDiv);
 var seaInformationContainerArray = new Array();
 seaInformationContainerArray.push(skill1ContainerDiv, skill2ContainerDiv, skill3ContainerDiv);
 
@@ -275,6 +277,7 @@ disableScrollOrSwipe();
 var robbydentrodelbus = false;
 var busEnMarcha = document.getElementById("bus-enmarcha");
 var busParada = document.getElementById("bus-parada");
+var busParada3 = document.getElementById("bus-parada3");
 
 var ruedasanimacionTimer;
 var ruedaimagen = 0;
@@ -1938,7 +1941,6 @@ function positionExperience3Elements()
 
 function animateInformationAndEnemiesElements()
 {
-    return;
     if (layersMovement == "horizontal")
     {
         if (isRobbySwimming == false)
@@ -1950,17 +1952,17 @@ function animateInformationAndEnemiesElements()
                         ((pageVerticalPosition + (0.5 * containerDiv.offsetWidth) > landInformationContainerArray[i].offsetLeft) && (pageVerticalPosition + (0.5 * containerDiv.offsetWidth) < landInformationContainerArray[i].offsetLeft + landInformationContainerArray[i].offsetWidth)))
                 {
                     //plants
-                    if (landInformationContainerArray[i] == about1ContainerDiv)
-                    {
-                        if (canAnimatePlantInformation == true)
-                        {
-                            animatePlants();
-                            canAnimatePlantInformation = false;
-                        }
-                    }
+//                    if (landInformationContainerArray[i] == about1ContainerDiv)
+//                    {
+//                        if (canAnimatePlantInformation == true)
+//                        {
+//                            animatePlants();
+//                            canAnimatePlantInformation = false;
+//                        }
+//                    }
 
                     //buildings
-                    if (landInformationContainerArray[i] == about2ContainerDiv)
+                    /*if (landInformationContainerArray[i] == about2ContainerDiv)
                     {
                         animateBuildingsEyes();
 
@@ -1981,22 +1983,12 @@ function animateInformationAndEnemiesElements()
                             animateNbaPlayer();
                             canAnimateNbaInformation = false;
                         }
-                    }
-
-                    //robot
-                    if (landInformationContainerArray[i] == experience1ContainerDiv)
+                    }*/
+                    //castillo
+                    if (landInformationContainerArray[i] == about3ContainerDiv)
                     {
-                        if (canAnimateRobotInformation == false) //if true, animateRobotHands will be execute after robot finish move from left to right
-                        {
-                            animateRobotHands();
-                        }
-                        else
-                        {
-                            animateRobot();
-                            animateExperienceTextContainer(0);
-                            animateChainBlockAndStringContainer(0);
-                            canAnimateRobotInformation = false;
-                        }
+                        animateExperienceTextContainer(0);
+                        animateChainBlockAndStringContainer(0);
                     }
 
                     //squid
@@ -2599,7 +2591,10 @@ function checkIfBus() {
         var posicioninicio = elevation1Div.offsetLeft - robbyRightEdge + elevation1Div.offsetWidth;
         var posicionfin = elevation2Div.offsetLeft - robbyRightEdge + elevation2Div.offsetWidth - deltaPageVerticalPosition;
         
-    
+        if (previousPageVerticalPosition > posicionfin){
+            var posicioninicio = elevation3Div.offsetLeft - robbyRightEdge + elevation3Div.offsetWidth;
+             var posicionfin = elevation4Div.offsetLeft - robbyRightEdge + elevation4Div.offsetWidth - deltaPageVerticalPosition;
+        }
         if (pageVerticalPosition < posicioninicio && posicioninicio < (pageVerticalPosition + deltaPageVerticalPosition)) {
 //            disableScrollOrSwipe();
             $(about1ContainerDiv).addClass('puertaabierta');
@@ -2638,6 +2633,7 @@ function moverRuedas() {
 }
 function pararBus() {
     $(busParada).show();
+    $(busParada3).show();
     $(robbyContainerDiv).show();
     $(about1ContainerDiv).removeClass('sinimagen');
     $(busEnMarcha).hide();
@@ -2651,6 +2647,7 @@ function andarBus() {
     $(busEnMarcha).show();
     
     $(busParada).hide();
+    $(busParada3).hide();
 }
 function continuarBus() {
     enableScrollOrSwipe();

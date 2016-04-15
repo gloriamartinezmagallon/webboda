@@ -332,13 +332,58 @@ body
     background-image: url(../image/enemy-face-b-eyes.png);
 }
 
-#buildings-container
+#buspamplona-container
 {
     position: absolute;
     left: 4098px;
     bottom: 20%;
     width: 1800px;
     height: 80%;
+}
+
+#buscortes-container
+{
+    position: absolute;
+    left: 10000px;
+    bottom: 20%;
+    width: 1800px;
+    height: 80%;
+}
+
+#busablitas-container
+{
+    position: absolute;
+    left: 12000px;
+    bottom: 20%;
+    width: 1800px;
+    height: 80%;
+}
+
+#pagocirsus-container{
+    position: absolute;
+    left: 13000px;
+    bottom: 20%;
+    width: 1050px;
+    height: 80%;
+}
+
+#pagocirsus{
+        background-image: url(../image/pagodecirsus-01.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    width: 2000px;
+    height: 514px;
+    bottom: 20%;
+}
+
+#noche-container{
+    position: absolute;
+    left: 15000px;
+    bottom: 20%;
+    width: 2000px;
+    height: 100%;
+    background: #000
 }
 
 .building-leg-container-a
@@ -942,7 +987,7 @@ body
     height: 44px;
 }
 
-#elevation-1 .grass, #elevation-2 .grass{
+#elevation-1 .grass, #elevation-2 .grass, #elevation-3 .grass, #elevation-4 .grass{
     height: 20px;
     background-position-y: -30px;
 }
@@ -957,18 +1002,18 @@ body
 
 #elevation-3
 {
-    left: 16040px;
+    left: 10500px;
     bottom: 20%;
-    width: 400px;
-    height: 150px;
+    width: 300px;
+    height: 44px;
 }
 
 #elevation-4
 {
-    left: 17840px;
+    left: 12659px;
     bottom: 20%;
-    width: 400px;
-    height: 150px;
+    width: 300px;
+    height: 44px;
 }
 
 .elevation
@@ -1080,6 +1125,10 @@ body
     font-family: Arial;
     color: #ffffff;
     font-size: 18px;
+}
+
+.experience-text-c a{
+    color: #ffffff;
 }
 
 .experience-text-e
@@ -1404,7 +1453,7 @@ body
     position: absolute;
     left: 0px;
     top: 80%;
-    width: 15000px;
+    width: 18000px;
     height: 90%;
 }
 
@@ -1508,7 +1557,7 @@ img
 
 #layer-horizontal-3
 {
-    width: 22500px;
+    width: 17000px;
 }
 
 .layer-vertical
@@ -1614,7 +1663,7 @@ img
     background-image: url(../image/nba-board-red.png);
 }
 
-#nba-container
+#castillo-container
 {
     position: absolute;
     left: 6680px;
@@ -1992,7 +2041,7 @@ img
     display:none;
 }
 
-#nba-container{
+#castillo-container{
     background-image: url(../image/castillo-01.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -2000,6 +2049,7 @@ img
     width: 3364px;
     height: 1758px;
     bottom: 20%;
+    left: 6015px;
 }
 
 #bus-parada{
@@ -2012,6 +2062,30 @@ img
     background-repeat: no-repeat;
     background-position-y: 100%;
     display:none;
+}
+
+#bus-parada2 {
+    position: absolute;
+    bottom: 0;
+    width: 900px;
+    height: 80%;
+    background-image: url(../image/buspuertaabierta.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    
+}
+#bus-parada3 {
+    position: absolute;
+    bottom: 0;
+    width: 900px;
+    height: 80%;
+    background-image: url(../image/buspuertaabierta.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    display: none;
+    
 }
 
 .ruedaanimate {
@@ -2028,7 +2102,7 @@ img
     left:562px;
 }
 
-#plants-container
+#pamplona-container
 {
     position: absolute;
     left: 1880px;
@@ -2040,17 +2114,17 @@ img
     background-repeat: no-repeat;
     background-position-y: 100%;
 }
-#plants-container.puertaabierta
+#pamplona-container.puertaabierta
 {
     background-image: url(../image/buspuertaabierta.png);
 }
 
-#plants-container.busconrobby
+#pamplona-container.busconrobby
 {
     background-image: url(../image/buswithrobby.png);
 }
 
-#plants-container.sinimagen{
+#pamplona-container.sinimagen{
     background-image: none;
 }
 
@@ -2863,14 +2937,27 @@ img
     background-image: url(../image/title-experience.png);
 }
 
-#title-leonardi
+#title-gloria
 {
     position:absolute;
     left: 200px;
     bottom: 0px;
     width: 793px;
     height: 300px;
-    background-image: url(../image/title-gloria.png);
+    background-image: url(../image/title-miguel-01.png);
+    background-size: contain;
+}
+
+#title-fecha
+{
+    position:absolute;
+    left: 220px;
+    bottom: 0px;
+    width: 793px;
+    height: 183px;
+    background-repeat: no-repeat;
+    background-image: url(../image/title-miguel-03.png);
+    background-size: contain;
 }
 
 #title-publication
@@ -2883,14 +2970,15 @@ img
     background-image: url(../image/title-publication.png);
 }
 
-#title-robby
+#title-miguel
 {
     position:absolute;
     left: 0px;
     bottom: 0px;
     width: 1030px;
     height: 420px;
-    background-image: url(../image/title-miguel.png);
+    background-image: url(../image/title-miguel-02.png);
+    background-size: contain;
 }
 
 #title-skills
@@ -3225,7 +3313,7 @@ img
 }
 
 #experience-text-container-1{
-    right: -255px;
+    left: 255px;
 }
 
 .experience-text-btn{
@@ -3237,7 +3325,7 @@ img
 }
 
 #bus-horarios{
-    background-image: url(../image/bushorarios.png);
+    background-image: url(../image/bushorarios-01.png);
     width: 300px;
     height: 100%;
     position: absolute;
@@ -3248,10 +3336,22 @@ img
     background-repeat: no-repeat;
 }
 
-#plants-container{
+#bus-horarios2{
+    background-image: url(../image/bushorarios-02.png);
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 820px;
+    background-size: contain;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
     z-index: 255;
 }
-#elevation-1, #elevation-2{
+#pamplona-container{
+    z-index: 255;
+}
+#elevation-1, #elevation-2, #elevation-3, #elevation-4{
     z-index: 256;
 }
 #robby-container{
