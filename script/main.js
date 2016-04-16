@@ -281,6 +281,7 @@ var busParada3 = document.getElementById("bus-parada3");
 
 var ruedasanimacionTimer;
 var ruedaimagen = 0;
+var noche = document.getElementById("noche-container");
 
 //so browser will not jump to last position when refresh
 $(window).on('beforeunload', function () {
