@@ -10,7 +10,7 @@ function initContactButton()
 	}
 	else //using touchstart to replace onclick on mobile device since touchevents are used
 	{
-		sendEmailDiv.addEventListener("touchstart", sendEmail, false);
+		sendEmailDiv.onclick = function() {sendEmail()};
 	}
         
 }
