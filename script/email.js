@@ -4,7 +4,6 @@ var sendEmailDiv = document.getElementById("send-email");
 function sendEmail()
 {
 		hideContactConfirmationContainer(); //function from main.js
-		//positionContactConfirmationContainer(); //function from main.js
 									
 		var isSubjectFilled;
 		var isMessageFilled;
