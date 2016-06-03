@@ -1,7 +1,7 @@
-a
+/*a
 {
     text-decoration: none;
-}
+}*/
 
 #algae-1
 {
@@ -599,7 +599,7 @@ body
     left: 570px;
     top: 110px;
     width: 350px;
-    height: 170px;
+    height: 75px;
     background-image: url(../image/contact-box-hole-b.png);
 }
 
@@ -609,7 +609,7 @@ body
     font-size: 14px;
     color: #ffffff;
     width: 340px;
-    height: 160px;
+    height: 65px;
     margin: 5px;
     border: none;
     overflow:hidden;  /*no scroll bar*/
@@ -625,7 +625,7 @@ body
 #contact-button
 {
     position: absolute;
-    top: 440px;
+    top: 315px;
     margin-left: -210px;
     width: 355px;
     height: 100px;
@@ -2942,6 +2942,7 @@ img
     width: 793px;
     height: 300px;
     background-image: url(../image/title-miguel-01.png);
+    background-repeat: no-repeat;
     background-size: contain;
 }
 
@@ -2954,6 +2955,7 @@ img
     height: 183px;
     background-repeat: no-repeat;
     background-image: url(../image/title-miguel-03.png);
+    background-repeat: no-repeat;
     background-size: contain;
 }
 
@@ -2976,6 +2978,7 @@ img
     height: 420px;
     background-image: url(../image/title-miguel-02.png);
     background-size: contain;
+    background-repeat: no-repeat;
 }
 
 #title-skills
@@ -3462,11 +3465,11 @@ img
 
 
 .myButton {
-	background-color:#44c767;
+	background-color:#9e0039;
 	-moz-border-radius:14px;
 	-webkit-border-radius:14px;
 	border-radius:14px;
-	border:1px solid #18ab29;
+	border:1px solid #7a0026;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -3475,11 +3478,10 @@ img
 	padding:4px 31px;
         margin-left: 10px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
         font-size: 1.3em;
 }
 .myButton:hover {
-	background-color:#5cbf2a;
+	background-color:#7a0026;
 }
 .myButton:active {
 	position:relative;

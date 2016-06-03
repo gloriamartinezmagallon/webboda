@@ -23,8 +23,8 @@ function sendEmail()
 		var isSubjectFilled;
 		var isMessageFilled;
 								  
-		var emailAddress = 'gloria.martinez.magallon@gmail.com';
-		var emailSubject = 'Confirmación de asistencia';
+		var emailAddress = "";
+		var emailSubject = "Confirmación de asistencia - "+jQuery("#tags").val();
 		var emailMessage = $("#email-message").val();
 
 		if (!emailAddress.match(/^([a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,4}$)/i))
