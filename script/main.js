@@ -310,6 +310,10 @@ function seleccionadoInvitado(){
 function iniciar()
 {
     $("#selectinvitado").hide();
+    if (deviceName != "computer")
+    {
+        initTouchEvents();
+    }
     
 
     storeDivs();
