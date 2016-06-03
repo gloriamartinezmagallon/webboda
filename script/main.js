@@ -293,8 +293,23 @@ $(window).on('beforeunload', function () {
     $(window).scrollTop(0);
 });
 
-window.onload = function ()
+window.onload = function(){
+    showAutocomplete();
+};
+
+function showAutocomplete(){
+    shiftUpPreloader(); //function in preloader.js
+    
+    $("#selectinvitado").stop().animate({top: "100%"}, 1000, function() {$("#selectinvitado").show()});
+}
+
+function seleccionadoInvitado(){
+    getClassforrobby();
+    $("#selectinvitado").stop().animate({bottom: "100%"}, 1000, function() {iniciar()});
+}
+function iniciar()
 {
+    $("#selectinvitado").hide();
     if (deviceName != "computer")
     {
         initTouchEvents();
@@ -727,6 +742,7 @@ function positionHorizontalLayersToHaveSameRightPosition()
 
 function positionHorizontalLayersVertically()
 {
+    return true;
     for (var i = 0; i < layerHorizontalArray.length; i++)
     {
         //layerHorizontalArray[i].style.top = layerVerticalArray[i].offsetTop + layerVerticalArray[i].offsetHeight - containerDiv.offsetHeight + "px";
@@ -736,6 +752,7 @@ function positionHorizontalLayersVertically()
 
 function positionHorizontalLayersAtBottomMost()
 {
+    return true;
     for (var i = 0; i < layerHorizontalArray.length; i++)
     {
         layerHorizontalArray[i].style.top = layerVerticalArray[layerVerticalArray.length - 1].offsetHeight - containerDiv.offsetHeight + "px";
@@ -752,6 +769,7 @@ function setRobbyLeftAndRightEdge()
 
 function positionVerticalLayersToHaveSameTopPosition()
 {
+    return true;
     for (var i = 0; i < layerVerticalArray.length; i++)
     {
         layerVerticalArray[i].style.bottom = containerDiv.offsetHeight - layerVerticalArray[i].offsetHeight + "px";
@@ -760,6 +778,7 @@ function positionVerticalLayersToHaveSameTopPosition()
 
 function positionVerticalLayersBottomToHorizontalLayersBottom()
 {
+    return true;
     for (var i = 0; i < layerVerticalArray.length; i++)
     {
         layerVerticalArray[i].style.bottom = (-1 * layerHorizontalArray[i].offsetTop) + "px";
@@ -847,6 +866,7 @@ function setShiftUpLayerHorizontalDistance()
 
 function shiftUpLayerHorizontal()
 {
+    return true;
     setShiftUpLayerHorizontalDistance();
 
     //shift up horizontal layers
@@ -860,6 +880,7 @@ function shiftUpLayerHorizontal()
 
 function moveUpLayerHorizontal() //robby from ground into sea
 {
+    return true;
     if (layersMovement == "horizontal")
     {
         for (var i = 0; i < layerHorizontalArray.length; i++)
@@ -900,6 +921,7 @@ function moveUpLayerHorizontal() //robby from ground into sea
 
 function shiftDownLayerHorizontal()
 {
+    return true;
     //shift down horizontal layers
     clearShiftUpDownLayerHorizontalTimer();
     shiftDownLayerHorizontalTimer = setInterval(function () {
@@ -909,6 +931,7 @@ function shiftDownLayerHorizontal()
 
 function moveDownLayerHorizontal() //robby from sea to ground
 {
+    return true;
     if (layersMovement == "horizontal")
     {
         for (var i = 0; i < layerHorizontalArray.length; i++)
@@ -2445,6 +2468,7 @@ function animateSocialContainer()
 
 function setSocialContainerOpacity(socialContainerOpacity) //custome social container and icon set opacity for internet explorer 8
 {
+    return true;
     if (socialContainerOpacity > 1)
     {
         socialContainerOpacity = 1;
@@ -2715,19 +2739,7 @@ function fadeOutScrollOrSwipeTextContainer()
 
 function positionContactConfirmationContainer()
 {
-    for (var i = 0; i < contactConfirmationContainerArray.length; i++)
-    {
-        if ((layersMovement == "not moving 1") || (layersMovement == "not moving 2"))
-        {
-            contactConfirmationContainerArray[i].style.left = robbyContainerDiv.offsetLeft + "px";
-        }
-        else
-        {
-            contactConfirmationContainerArray[i].style.left = robbyMaxHorizontalDistance + "px";
-        }
-
-        contactConfirmationContainerArray[i].style.top = 0.8 * containerDiv.offsetHeight - 370 + "px";
-    }
+    
 }
 
 function hideContactConfirmationContainer()
@@ -2750,6 +2762,7 @@ function hideContactConfirmationContainer()
 
 function showContactConfirmationContainer(contactConfirmationContainerNumber)
 {
+    console.log("Mostrar "+contactConfirmationContainerNumber);
     var contactConfirmationChildrenLength = $(contactConfirmationContainerArray[contactConfirmationContainerNumber]).children().children().length;
 
     for (var j = 0; j < contactConfirmationChildrenLength; j++)

@@ -12,12 +12,13 @@ function initContactButton()
 	{
 		sendEmailDiv.addEventListener("touchstart", sendEmail, false);
 	}
+        
 }
 
 function sendEmail()
 {
 		hideContactConfirmationContainer(); //function from main.js
-		positionContactConfirmationContainer(); //function from main.js
+		//positionContactConfirmationContainer(); //function from main.js
 									
 		var isSubjectFilled;
 		var isMessageFilled;
@@ -89,3 +90,4 @@ function send(datastr){
 	}
 	});
 }
+

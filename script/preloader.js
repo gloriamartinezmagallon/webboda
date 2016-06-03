@@ -13,6 +13,7 @@ function hidePreloader()
 function showPreloader()
 {
 	preloaderDiv.setAttribute("class", "");
+        
 }
 
 function shiftUpPreloader()

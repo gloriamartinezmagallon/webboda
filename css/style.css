@@ -384,6 +384,7 @@ body
     width: 2000px;
     height: 479px;
     bottom: 0;
+    left: 450px;
     position: absolute;
 }
 
@@ -466,7 +467,7 @@ body
     background-image: url(../image/chain-block-string.png);
 }
 
-.chain-block-and-string-container
+.chain-block-and-string-container,.chain-block-and-string-container2
 {
     position: absolute;
     width: 100px;
@@ -644,6 +645,8 @@ body
 {
     position: absolute;
     z-index: 258;
+    left: 58%;
+    bottom: 170px;
 }
 
 .contact-confirmation
@@ -1119,7 +1122,7 @@ body
     font-size: 18px;
 }
 
-.experience-text-container
+.experience-text-container,.experience-text-container2
 {
     position: absolute;
     bottom: 185px;
@@ -1535,7 +1538,7 @@ img
 
 #layer-horizontal-3
 {
-    width: 22000px;
+    width: 16900px;
 }
 
 .layer-vertical
@@ -2349,7 +2352,7 @@ img
     position: relative;
     left: -50%;
     width: 200px;
-    height: 175px;
+    height: 168px;
     overflow: hidden;
 }
 
@@ -2377,7 +2380,14 @@ img
     top: 0px;
     width: 1800px;
     height: 400px;
-    background-image: url(../image/robby-slides.png);
+    background-image: url(../image/robby-slides-01.png);
+}
+
+#robby-slides.chicosolo{
+    background-image: url(../image/robby-slides-02.png);
+}
+#robby-slides.chicasola{
+    background-image: url(../image/robby-slides-03.png);
 }
 
 #ribbon-2-1
@@ -3412,4 +3422,64 @@ img
     left: 29%;
     bottom: 0%;
     background-repeat: no-repeat;
+}
+
+#selectinvitado{
+    position: absolute;
+    top: 0 !important; 
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    z-index: 255;
+}
+#selectinvitado .experience-text-container2{
+    left: 50%;
+    margin-left: -255px;
+}
+
+#selectinvitado .chain-block-and-string-container2{
+    bottom: 476px;
+    left: 50%;
+}
+
+.ui-autocomplete{
+    z-index: 300;
+    max-height: 100px;
+    overflow: hidden;
+    font-size: 0.9em;
+}
+
+ .textbox { 
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+    border: 1px solid #848484; 
+    outline:0; 
+    height:25px; 
+    width: 275px; 
+ }  
+
+
+.myButton {
+	background-color:#44c767;
+	-moz-border-radius:14px;
+	-webkit-border-radius:14px;
+	border-radius:14px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: frankfurter-medium-plain;
+	font-size:17px;
+	padding:4px 31px;
+        margin-left: 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }
