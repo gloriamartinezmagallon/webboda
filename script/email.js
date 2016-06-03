@@ -1,19 +1,5 @@
 var sendEmailDiv = document.getElementById("send-email");
 
-initContactButton();
-
-function initContactButton()
-{
-	if (deviceName == "computer")
-	{
-		sendEmailDiv.onclick = function() {sendEmail()};
-	}
-	else //using touchstart to replace onclick on mobile device since touchevents are used
-	{
-		sendEmailDiv.onclick = function() {sendEmail()};
-	}
-        
-}
 
 function sendEmail()
 {
