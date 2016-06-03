@@ -3,6 +3,7 @@ var sendEmailDiv = document.getElementById("send-email");
 
 function sendEmail()
 {
+    alert("entraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		hideContactConfirmationContainer(); //function from main.js
 									
 		var isSubjectFilled;
