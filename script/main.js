@@ -7,6 +7,7 @@ var robbyEyesCloseDiv = document.getElementById("robby-eyes-close");
 var blinkRobbyEyesTimer;
 var animateCamaraTimer;
 var camaraFotos = document.getElementById("camarafotos");
+var infoCamara = document.getElementById("infocamara");
 
 var bannersContainerDiv = document.getElementById("banners-container");
 
@@ -1167,17 +1168,17 @@ function animarCamara(){
     
     if (deviceName == "computer")
     {
-        jQuery(camaraFotos).onclick = function () {
+        camaraFotos.onclick = function () {
             showInfoCamara();
         };
-        jQuery("#infocamara").onclick = function () {
+        infoCamara.onclick = function () {
             hideInfoCamara();
         };
     }
     else //using touchstart to replace onclick on mobile device since touchevents are used
     {
-        jQuery(camaraFotos).addEventListener("touchstart", showInfoCamara, false);
-        jQuery("#infocamara").addEventListener("touchstart", hideInfoCamara, false);
+        camaraFotos.addEventListener("touchstart", showInfoCamara, false);
+        jinfoCamara.addEventListener("touchstart", hideInfoCamara, false);
         
     }
     
