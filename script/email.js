@@ -29,7 +29,7 @@ function makeFocus(){
         flagmensaje = false;
     }, 100);
     
-    focusMensaje();
+    focusMessage();
 }
 
 var flag = false;
