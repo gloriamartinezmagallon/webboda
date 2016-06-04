@@ -70,18 +70,22 @@ $(function () {
         "Westh"
     ];
     $("#tags").autocomplete({
-        source: invitados
+        source: invitados,
+        autoFocus: true,
+        focus: function (event, ui) {
+            $(this).val(ui.item.value);
+        }
     });
 
 }
 );
 
 
-function getClassforrobby(){
-    $chicassolas = [ 
+function getClassforrobby() {
+    $chicassolas = [
         "Rosa",
         "Elena",
-        "Lucía",        
+        "Lucía",
         "Manuela",
         "Mariam",
         "Iratxe",
@@ -105,7 +109,7 @@ function getClassforrobby(){
         "Jotas",
         "Nuin",
         "Luis Eduardo"
-    ];    
+    ];
     $parejas = [
         "Gemma y Jose Luis",
         "Lupe y Fidel",
@@ -148,7 +152,7 @@ function getClassforrobby(){
         "Coral, Ion y Unai",
         "Amador, Marian y Aimar"
     ];
-    $parejacondos =  [
+    $parejacondos = [
         "Peio, Nerea, Alazne e Izei",
         "Iñigo, Natalia, Unax y Maite",
         "Aitor, Itziar, Iker y Ane",
@@ -157,22 +161,27 @@ function getClassforrobby(){
     ];
     var elegido = jQuery('#tags').val();
     var clase = "";
-    if ($chicassolas.indexOf(elegido) >= 0) clase = "chicasola";
-    else if ($chicossolos.indexOf(elegido) >= 0) clase = "chicosolo";
-    else if ($parejacondos.indexOf(elegido) >= 0) clase = "parejacondos";
-    else if ($parejaconnina.indexOf(elegido) >= 0) clase = "parejaconnina";
-    else if ($parejaconnino.indexOf(elegido) >= 0) clase = "parejaconnino";
-    
+    if ($chicassolas.indexOf(elegido) >= 0)
+        clase = "chicasola";
+    else if ($chicossolos.indexOf(elegido) >= 0)
+        clase = "chicosolo";
+    else if ($parejacondos.indexOf(elegido) >= 0)
+        clase = "parejacondos";
+    else if ($parejaconnina.indexOf(elegido) >= 0)
+        clase = "parejaconnina";
+    else if ($parejaconnino.indexOf(elegido) >= 0)
+        clase = "parejaconnino";
+
     jQuery("#robby-slides").removeClass("chicasola").removeClass("chicosolo");
     jQuery("#robby-slides").removeClass("parejaconnina").removeClass("chicasola").removeClass("chicasola");
     jQuery("#robby-slides").addClass(clase);
-    
+
     console.log(clase);
-    
+
     ga('send', {
-  hitType: 'event',
-  eventCategory: 'Invitado',
-  eventAction: 'seleccionado',
-  eventLabel: elegido
-});
+        hitType: 'event',
+        eventCategory: 'Invitado',
+        eventAction: elegido,
+        eventLabel: elegido
+    });
 }
