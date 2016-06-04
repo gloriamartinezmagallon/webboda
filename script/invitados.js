@@ -71,13 +71,6 @@ $(function () {
     ];
     $("#tags").autocomplete({
         source: invitados,
-        autoFocus: true,
-        focus: function (event, ui) {
-             if (ui.content.length == 1){
-                 $(this).val(ui.item.value);
-             }
-            
-        }
     });
 
 }
