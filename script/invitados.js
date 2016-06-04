@@ -73,7 +73,10 @@ $(function () {
         source: invitados,
         autoFocus: true,
         focus: function (event, ui) {
-            $(this).val(ui.item.value);
+             if(ui.items.length==1) {
+                 $(this).val(ui.item.value);
+             }
+            
         }
     });
 
