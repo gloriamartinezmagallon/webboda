@@ -1,4 +1,5 @@
 var sendEmailDiv = document.getElementById("send-email");
+var emailMensaje = document.getElementById("email-message");
 
 initContactButton();
 
@@ -13,8 +14,22 @@ function initContactButton()
     else //using touchstart to replace onclick on mobile device since touchevents are used
     {
         sendEmailDiv.addEventListener("touchstart", sendEmail, false);
+        emailMensaje.addEventListener("touchstart", makeFocus, false);
     }
 
+}
+
+var flagmensaje = false;
+
+function makeFocus(){
+    if (flagmensaje)
+        return;
+    flagmensaje = true;
+    setTimeout(function () {
+        flagmensaje = false;
+    }, 100);
+    
+    focusMensaje();
 }
 
 var flag = false;
@@ -27,8 +42,6 @@ function sendEmail()
         flag = false;
     }, 100);
     
-    alert("entra");
-    return;
     
     hideContactConfirmationContainer(); //function from main.js
     //positionContactConfirmationContainer(); //function from main.js
