@@ -14,21 +14,21 @@ function initContactButton()
     else //using touchstart to replace onclick on mobile device since touchevents are used
     {
         sendEmailDiv.addEventListener("touchstart", sendEmail, false);
-        emailMensaje.addEventListener("touchstart", makeFocus, false);
+        emailMensaje.addEventListener("touchstart", makeFocusMessage, false);
     }
 
 }
 
 var flagmensaje = false;
 
-function makeFocus(){
+function makeFocusMessage(){
     if (flagmensaje)
         return;
     flagmensaje = true;
     setTimeout(function () {
         flagmensaje = false;
     }, 100);
-    
+    $("#email-message").val("");
     focusMessage();
 }
 

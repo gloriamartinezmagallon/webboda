@@ -37,6 +37,7 @@
     <body>
         <div id="content" class="content-noscroll">
             <div id="countdown"></div>
+            <div id="camarafotos" onclick="showInfoCamara()"></div>
             <div id="preloader">
                 <div id="preloader-banner-container">
                     <div id="preloader-banner">
@@ -62,6 +63,26 @@
                     <div class="experience-text-a">¡NOS CASAMOS!</div>
                     <div class="experience-text-a">Y QUEREMOS QUE NOS ACOMPAÑES EN ESTE DÍA</div>
                     <div class="experience-text-c"><input type="text" id="tags" class="textbox" placeholder="Escribe tu nombre" /><input class="myButton" type="button" onclick="seleccionadoInvitado()" value="ENTRAR"/></div>
+                </div>
+            </div>
+            
+            <div id="infocamara" style="display:none" onclick="hideInfoCamara()">
+                <div class="chain-block-and-string-container2">
+                    <div class="chain-block-string"></div>
+                    <div class="chain-block"></div>
+                </div>
+                <div class="experience-text-container2" >
+                    <div class="experience-text-b   ">COMPARTE CON NOSOTROS LAS FOTOS</div>
+                    <div class="experience-text-a">INSTALA LA APLICACIÓN</div>
+                    <div class="experience-text-c">
+                        Descárgate la aplicación de WedShoots en www.wedshoots.com o en la tienda de tu teléfono 
+                        <a href="https://app.appsflyer.com/id660256196?pid=WP-iOS-ES&c=WP-ES-LANDINGS&s=es" target="_blank">Android</a> o <a href="https://app.appsflyer.com/net.bodas.android.wedshoots?pid=WP-Android-ES&c=WP-ES-LANDINGS" target="_blank">iPhone</a>.
+                    </div>
+                    <div class="experience-text-a">ACCEDE CON EL CÓDIGO</div>
+                    <div class="experience-text-c">
+                        Abre Wedshoots en tu móvil, pon tu nombre e introduce el código del albúm, o escanea el código QR que hay aquí en la tarjeta.
+                        <br/>Código del albúm: ESaf247f65
+                    </div>
                 </div>
             </div>
 

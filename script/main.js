@@ -5,6 +5,8 @@ var robbyDiv = document.getElementById("robby");
 var robbyFramesDiv = document.getElementById("robby-slides");
 var robbyEyesCloseDiv = document.getElementById("robby-eyes-close");
 var blinkRobbyEyesTimer;
+var animateCamaraTimer;
+var camaraFotos = document.getElementById("camarafotos");
 
 var bannersContainerDiv = document.getElementById("banners-container");
 
@@ -316,6 +318,7 @@ function iniciar()
     }
     
 
+    animarCamara();
     storeDivs();
 
     setFrontLayerVerticalHeight();
@@ -1149,6 +1152,40 @@ function robbySwimDown(robbySwimDownTime)
     {
         setRobbyStaticFrame();
     }
+}
+
+function showInfoCamara(){
+    jQuery("#infocamara").show();
+    }
+
+
+function hideInfoCamara(){
+    jQuery("#infocamara").hide();
+}
+
+function animarCamara(){
+    
+    if (deviceName == "computer")
+    {
+        jQuery(camaraFotos).onclick = function () {
+            showInfoCamara();
+        };
+        jQuery("#infocamara").onclick = function () {
+            hideInfoCamara();
+        };
+    }
+    else //using touchstart to replace onclick on mobile device since touchevents are used
+    {
+        jQuery(camaraFotos).addEventListener("touchstart", showInfoCamara, false);
+        jQuery("#infocamara").addEventListener("touchstart", hideInfoCamara, false);
+        
+    }
+    
+    jQuery(camaraFotos).show();
+    clearInterval(animateCamaraTimer);
+    animateCamaraTimer = setInterval(function () {
+        jQuery(camaraFotos).toggleClass("confoto");
+    }, 2000);
 }
 
 function animateRobbyEyes()
