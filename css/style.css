@@ -3436,7 +3436,7 @@ img
     z-index: 255;
 }
 #infocamara{
-    top: 180px !important; 
+    top: -100px !important; 
     
 }
 #selectinvitado .experience-text-container2,#infocamara .experience-text-container2{
