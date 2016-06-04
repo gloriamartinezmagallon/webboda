@@ -16,9 +16,9 @@ $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
 $mail->Username = "info@navarradeveloper.com";
 //Password to use for SMTP authentication
-$mail->Password = "G339s567";
+$mail->Password = "N4vd3v%7";
 //Set who the message is to be sent from
-$mail->setFrom('info@navarradeveloper.com', 'Confirmar Boda');
+$mail->setFrom('info@navarradeveloper.com', 'Mensaje Boda');
 //Set an alternative reply-to address
 $mail->addReplyTo('mleizajer@hotmail.com', 'Miguel Leizagoyen');
 //Set who the message is to be sent to
