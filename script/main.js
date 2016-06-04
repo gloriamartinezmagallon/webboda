@@ -1178,7 +1178,7 @@ function animarCamara(){
     else //using touchstart to replace onclick on mobile device since touchevents are used
     {
         camaraFotos.addEventListener("touchstart", showInfoCamara, false);
-        jinfoCamara.addEventListener("touchstart", hideInfoCamara, false);
+        infoCamara.addEventListener("touchstart", hideInfoCamara, false);
         
     }
     
