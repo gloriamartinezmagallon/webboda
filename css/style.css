@@ -2089,7 +2089,7 @@ img
 }
 
 #ruedaadelante{
-    left:562px;
+    left:560px;
 }
 
 #pamplona-container
@@ -2352,7 +2352,7 @@ img
     position: relative;
     left: -50%;
     width: 200px;
-    height: 168px;
+    height: 175px;
     overflow: hidden;
 }
 
@@ -2388,6 +2388,10 @@ img
 }
 #robby-slides.chicasola{
     background-image: url(../image/robby-slides-03.png);
+}
+
+#robby-slides.parejacondos{
+    background-image: url(../image/robby-slides-04.png);
 }
 
 #ribbon-2-1

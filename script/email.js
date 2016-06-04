@@ -21,7 +21,7 @@ function initContactButton()
 
 var flagmensaje = false;
 
-function makeFocusMessage(){
+function makeFocusMessage() {
     if (flagmensaje)
         return;
     flagmensaje = true;
@@ -41,8 +41,8 @@ function sendEmail()
     setTimeout(function () {
         flag = false;
     }, 100);
-    
-    
+
+
     hideContactConfirmationContainer(); //function from main.js
     //positionContactConfirmationContainer(); //function from main.js
 
@@ -53,47 +53,39 @@ function sendEmail()
     var emailSubject = "Confirmación de asistencia - " + jQuery("#tags").val();
     var emailMessage = $("#email-message").val();
 
-    if (!emailAddress.match(/^([a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,4}$)/i))
+    if (emailMessage.length < 1)
     {
-        focusEmail(); //function from main.js
-        setTimeout("showContactConfirmationContainer(0)", 200); //function from main.js, setTimeout for ie since its focus is late
+        isMessageFilled = false;
+        focusMessage(); //function from main.js
+    }
+
+    if (emailMessage.length >= 1)
+    {
+        isMessageFilled = true;
+    }
+
+    if (emailSubject.length < 1)
+    {
+        isSubjectFilled = false;
+        focusSubject(); //function from main.js
+    }
+
+    if (emailSubject.length >= 1)
+    {
+        isSubjectFilled = true;
+    }
+
+    if ((isSubjectFilled == true) && (isMessageFilled == true))
+    {
+        var datastr = 'email-address=' + emailAddress + '&email-subject=' + emailSubject + '&email-message=' + emailMessage;
+
+        setTimeout("showContactConfirmationContainer(2)", 200); //function from main.js, setTimeout for ie since its focus is late
+
+        setTimeout("send('" + datastr + "')", 2000);
     }
     else
     {
-        if (emailMessage.length < 1)
-        {
-            isMessageFilled = false;
-            focusMessage(); //function from main.js
-        }
-
-        if (emailMessage.length >= 1)
-        {
-            isMessageFilled = true;
-        }
-
-        if (emailSubject.length < 1)
-        {
-            isSubjectFilled = false;
-            focusSubject(); //function from main.js
-        }
-
-        if (emailSubject.length >= 1)
-        {
-            isSubjectFilled = true;
-        }
-
-        if ((isSubjectFilled == true) && (isMessageFilled == true))
-        {
-            var datastr = 'email-address=' + emailAddress + '&email-subject=' + emailSubject + '&email-message=' + emailMessage;
-
-            setTimeout("showContactConfirmationContainer(2)", 200); //function from main.js, setTimeout for ie since its focus is late
-
-            setTimeout("send('" + datastr + "')", 2000);
-        }
-        else
-        {
-            setTimeout("showContactConfirmationContainer(1)", 200); //function from main.js, setTimeout for ie since its focus is late
-        }
+        setTimeout("showContactConfirmationContainer(1)", 200); //function from main.js, setTimeout for ie since its focus is late
     }
 
     return false;

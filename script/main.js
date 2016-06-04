@@ -1314,7 +1314,7 @@ function orientRobby()
     }
     if (deltaPageVerticalPosition < 0)
     {
-        robbyFramesDiv.style.top = "-200px";
+        robbyFramesDiv.style.top = "-182px";
         /*robbyEyesCloseDiv.style.left = "55px";*/
     }
 }
