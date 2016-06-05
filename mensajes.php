@@ -14,7 +14,7 @@ $mensajes = [];
 if ($resultado = mysqli_query($connect, "SELECT * FROM msgboda ORDER BY id DESC")) {
     /* obtener el array asociativo */
     while ($fila = mysqli_fetch_row($resultado)) {
-        $mensajes = $fila;
+        $mensajes[] = $fila;
     }
 
     /* liberar el conjunto de resultados */
@@ -52,7 +52,7 @@ mysqli_close($connect);
     </thead>
     <tbody>
         <?php
-        foreach($resultado as $r){
+        foreach($mensajes as $r){
             echo '<tr>';
             echo '<td>'.implode('</td><td>',$r).'</td>';
             echo '</tr>';
