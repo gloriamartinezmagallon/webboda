@@ -77,7 +77,7 @@ function sendEmail()
 
     if ((isSubjectFilled == true) && (isMessageFilled == true))
     {
-        var datastr = 'email-address=' + emailAddress + '&email-subject=' + emailSubject + '&email-message=' + emailMessage;
+        var datastr = 'email-subject=' + emailSubject + '&email-message=' + emailMessage;
 
         setTimeout("showContactConfirmationContainer(2)", 200); //function from main.js, setTimeout for ie since its focus is late
 
