@@ -1,7 +1,7 @@
 <?php
 
-$emailsubject = $_POST['email-subject'];
-$emailmessage = $_POST['email-message'];
+$emailsubject = utf8_decode($_POST['email-subject']);
+$emailmessage = utf8_decode($_POST['email-message']);
 
 $host_name = "db404613754.db.1and1.com";
 $database = "db404613754";
