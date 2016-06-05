@@ -11,5 +11,5 @@ $password = "cr3sp00";
 
 $connect = mysqli_connect($host_name, $user_name, $password, $database);
 
-mysqli_query($connect, "INSERT INTO `msgboda`(`fecha`, `subject`, `message`) VALUES ('" . date('Y-m-d H:i:s') . "',','" . $emailsubject . "','" . $emailmessage . "')");
+mysqli_query($connect, "INSERT INTO `msgboda`(`fecha`, `subject`, `message`) VALUES ('" . date('Y-m-d H:i:s') . "','" . $emailsubject . "','" . $emailmessage . "')");
 
