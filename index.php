@@ -170,7 +170,7 @@
                         </div>
                         <div id="experience-text-container-3" class="experience-text-container" >
                             <div class="experience-text-b">¡AL BANQUETE!</div>
-                            <div class="experience-text-c">Tras la ceremonía, nos desplazaremos al Pago de Cirsus en autobús.</div>
+                            <div class="experience-text-c">Tras la ceremonia, nos desplazaremos al Pago de Cirsus en autobús.</div>
                             <!--<div class="experience-text-c">Para realizar todos los trayectos habrá autobús, pedimos confirmación para organizar los buses.</div>-->
                         </div>
                         <div id="bus-parada2">
@@ -194,7 +194,7 @@
                         </div>
                         <div id="experience-text-container-4" class="experience-text-container" >
                             <div class="experience-text-b">BANQUETE Y FIESTA</div>
-                            <div class="experience-text-c">El banquete y la posterior fiesta se realizará en el Pago de Cirsus de Ablitas <a href="http://www.pagodecirsus.com/es/restaurante" target="_blank">Más info</a>
+                            <div class="experience-text-c">El banquete y la posterior fiesta se celebrará en el Pago de Cirsus de Ablitas <a href="http://www.pagodecirsus.com/es/restaurante" target="_blank">Más info</a>
                             <div class="experience-text-c">Hora de fin y salida de los autobuses a Pamplona - Cortes y Tudela, pendiente de confirmar, aprox. las 23:00-0:00</div>
                             </div>
 
