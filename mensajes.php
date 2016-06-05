@@ -11,7 +11,7 @@ $password = "cr3sp00";
 
 $connect = mysqli_connect($host_name, $user_name, $password, $database);
 $mensajes = [];
-if ($resultado = mysqli_query($link, "SELECT * FROM msgboda ORDER BY id DESC")) {
+if ($resultado = mysqli_query($connect, "SELECT * FROM msgboda ORDER BY id DESC")) {
     /* obtener el array asociativo */
     while ($fila = mysqli_fetch_row($resultado)) {
         $mensajes = $fila;
