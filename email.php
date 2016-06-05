@@ -10,6 +10,12 @@ $password = "cr3sp00";
 
 
 $connect = mysqli_connect($host_name, $user_name, $password, $database);
+if (mysqli_connect_errno()) {
+    die(mysqli_connect_error());
+} else {
+    $result= mysqli_query($connect, "INSERT INTO msgboda(fecha, subject, message) VALUES ('" . date('Y-m-d H:i:s') . "','" . $emailsubject . "','" . $emailmessage . "')");
+    if  ($result) echo 'OK!';
+    else echo mysqli_error ($connect);
+}
 
-mysqli_query($connect, "INSERT INTO `msgboda`(`fecha`, `subject`, `message`) VALUES ('" . date('Y-m-d H:i:s') . "','" . $emailsubject . "','" . $emailmessage . "')");
 
