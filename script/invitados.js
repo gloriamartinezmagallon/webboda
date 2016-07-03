@@ -12,7 +12,7 @@ $(function () {
         "Margari y Eduardo",
         "Lucía",
         "Eduardo",
-        "Amaya, Jesús e hijas",
+        "Amaya, Angel e hijas",
         "Amador, Marian y Aimar",
         "Julio y Ana",
         "Iban y Ainara",
@@ -50,7 +50,7 @@ $(function () {
         "Carlos",
         "Dani",
         "Jotas",
-        "Leticia",
+        "Gabi",
         "María y Borja",
         "Carmen y Eneko",
         "Nuin",
@@ -67,7 +67,9 @@ $(function () {
         "Silvi",
         "Yaben",
         "Adri",
-        "Westh"
+        "Westh",
+	"Ana Rosa y Manolo",
+	"Celia y Jose Antonio"
     ];
     $("#tags").autocomplete({
         source: invitados,
